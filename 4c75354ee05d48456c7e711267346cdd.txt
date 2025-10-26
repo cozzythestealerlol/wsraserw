@@ -1,1 +1,1377 @@
-return(function(...)local y={"\078\119\048\097\051\113\087\065\075\057\087\067\078\104\055\077","\103\050\061\061","\101\109\113\065\101\047\061\061";"\110\049\066\052\075\119\055\081\071\076\061\061";"\101\109\049\070\112\088\087\122";"";"\101\069\115\080\112\081\111\111\071\110\081\049\075\047\061\061","\077\109\070\070\056\050\061\061","\101\084\087\049\077\050\061\061","\056\088\106\116\107\109\066\078\055\057\048\104\103\115\052\078";"\056\119\113\121\101\088\066\065","\077\108\081\116\101\047\061\061";"\112\088\066\121\112\051\049\114\101\110\053\061";"\056\088\087\070\075\088\106\061";"\103\088\068\048\103\110\101\053\112\104\049\089\099\104\115\057","\110\049\066\065\101\110\055\070\112\088\113\114\075\088\099\061","\056\119\115\065\075\084\101\081";"\101\109\070\113\103\099\112\099\107\116\111\117\117\113\111\110";"\101\110\111\072\075\084\053\061";"\099\115\113\051\107\110\111\090\077\051\048\057\101\119\070\097\071\115\122\061","\056\084\101\048\077\119\052\118\087\104\055\084\051\088\100\118";"\071\053\116\068\067\115\079\071\104\080\086\070\050\065\067\083\097\086\051\075\083\081\055\119\050\106\119\097\086\112\112\102\086\099\118\069\103\087\072\079\043\109\117\070\077\114\105\101\103\051\085\047\052\066\090\082\052\107\119\049\110\122\056\055\109\103\119\067\051\086\087\082\111\074\081\078\108\049\047\086\111\072\077\049\087\114\047\099\104\080\054\099\121\118\097\088\056\055\049\113\109\112\097\048\088\066\122\098\101\051\097\048\043\077\115\087\057\103\086\076\066\084\109\120\071\086\066\107\073\106\102\118\065\083\119\081\122\098\111\048\090\049\065\112\073\109\071\072\078\119\053\070\099\074\056\048\101\099\100\119\099\089\067\074\110\047\113\105\053\079\073\051\120\057\102\065\102\100\086\106\100\087\103\115\080\090\073\077\050\088\083\068\102\072\056\108\085\105\110\079\070\087\121\106\049\106\073\079\097\050\121\077\057\104\121\086\067\088\108\099\113\051\118\114\078\075\121\113\089\090\098\073\110\098\099\071\075\098\065\086\057\085\056\077\100\086\076\048\121\072\054\078\114\107\073\050\076\100\121\105\090\056\122\043\057\080\085\080\111\111\100\090\089\120\057\053\082\106\061\061";"\056\084\055\072\107\051\118\108","\075\051\113\116\107\076\061\061";"\115\110\087\081\056\119\118\070\075\051\099\061";"\107\057\048\083\099\088\048\085\117\113\100\068\112\117\087\083","\043\104\086\080\075\073\119\072\086\066\118\117\101\084\074\111\067\120\102\119\055\107\049\054\050\107\120\102\119\107\051\080\069\056\098\065\099\105\077\043\088\116\106\061","\077\109\066\121\077\109\113\116","\076\109\070\049\105\043\049\117\072\055\102\057\100\055\082\086\112\112\098\070\067\068\109\075\086\052\078\122\084\121\114\069\102\076\072\083\113\051\084\073\067\066\104\102\090\085\069\055\109\043\050\108\048\071\119\057\106\082\074\073\118\121\118\102\117\102\069\084\074\050\065\049\119\075\070\108\109\114\069\057\052\104\076\069\056\109\097\068\076\102\081\072\086\080\079\077\073\078\075\088\085\117\104\102\098\108\049\047\085\043\053\097\072\066\067\088\066\047\051\077\075\121\071\103\082\100\086\056\069\074\065\078\052\112\078\054\054\080\101\117\070\110\076\082\069\069\116\102\111\088\050\081\090\085\043\049\098\079\055\106\107\106\106\080\051\051\110\117\118\068\089\081\119\100\103\089\047\083\112\078\086\098\050\103\079\115\105\121\116\101\107\048\122\109\103\121\076\048\067\116\067\055\112\073\051\088\099\069\054\108\085\050\085\069\073\052\043\079\089\073\117\113\102\073\072\109\078\078\119\072\104\054\073\100\098\107\117\057\053\049\103\086\082\105\076\053\110\051\056\076\106\083\106\066\057\049\107\079\053\122\090\055\085\116\075\087\077\100\083\119\068\105\086\104\098\074\075\106\061\061","\075\069\053\061","\100\117\082\122\115\109\122\109\075\116\105\061";"\110\049\066\108\077\106\061\061";"\101\119\048\067\075\084\053\061","\075\088\066\070\101\074\087\116\056\119\081\121\101\106\061\061";"\078\074\055\116\056\057\112\081\112\076\061\061";"\056\109\115\116\075\051\115\116\077\110\055\070\077\119\048\081";"\112\051\118\106\077\051\087\089","\099\084\101\078\071\113\087\068\103\117\099\106\112\116\052\116\107\050\061\061","\103\114\050\081\101\083\122\052\103\050\061\061";"\075\109\048\117\112\057\081\067\071\104\081\118\051\119\070\083\056\109\053\061";"\048\075\082\054\048\109\097\099\049\108\052\068\102\050\117\065\113\049\080\073";"\115\088\113\065\056\088\115\072\053\057\055\081\112\088\115\102\112\088\115\104\053\047\061\061","\115\109\115\114\107\088\066\067\107\106\061\061","\077\104\118\116\112\069\101\097\112\117\112\072\103\057\113\067\099\119\056\061";"\075\069\057\061";"\110\049\066\105\101\051\068\061";"\112\088\113\114\075\088\099\061";"\075\088\115\121";"\071\081\082\088\100\084\070\107\107\074\082\065\112\051\050\120\056\119\054\061";"\078\113\052\106\112\099\111\072\117\115\052\068\056\117\115\051";"\112\088\066\120\112\074\111\052\075\119\056\061","\103\088\081\057\077\108\087\047\099\057\049\079\107\088\111\115";"\115\115\111\100"}local function x(x)return y[x+(539763-506288)]end for x,c in ipairs({{-573554+573555;-735927+735980},{623924-623923,685493+-685446},{144164+-144116;-1015039+1015092}})do while c[-951998+951999]<c[461168-461166]do y[c[1040961-1040960]],y[c[204264-204262]],c[334699-334698],c[477489-477487]=y[c[-987133-(-987135)]],y[c[865020-865019]],c[106148-106147]+(1024704+-1024703),c[147367-147365]-(936318-936317)end end do local x=string.len local c={["\057"]=134564+-134560;A=-814521+814566;j=386156+-386108,R=790714-790713,c=287101-287081;e=-857915+857940;f=-89379+89414;["\054"]=715826-715766;q=-21852-(-21857),["\043"]=319461-319402;i=983786-983742,J=315242+-315235;Y=-767053-(-767096);B=392620+-392559,n=847697-847674,t=-299381-(-299433),["\047"]=999695-999679,K=904316+-904289,T=714797-714742,N=-870715+870733,X=620921-620915;h=89635+-89599;V=508399-508336;a=-1007860-(-1007871),F=-245608+245641;["\051"]=499951+-499929,["\048"]=391340+-391291;D=1000375-1000319,I=-805146-(-805177),["\050"]=-752247+752279,s=-290793+290814;z=-110179+110219,P=-500982-(-501040);g=1045262-1045248;O=-293929+293939;U=50956-50914,o=-482863+482872,M=887804+-887780;["\049"]=641332+-641279,y=261480+-261434;Q=762296+-762259;v=-375724+375781,["\052"]=-335745-(-335786);d=-194598+194610;G=-669493+669523,b=-735799+735861,u=1045715-1045696;W=614451+-614438,L=567346-567346,p=-678680-(-678709),r=-1012095+1012129;m=-7530-(-7584);w=445268-445230,C=-236135+236182;k=-863355+863381,["\055"]=990143+-990126;H=303707-303657,S=413933+-413931;x=-829498+829549,l=-661941+661980,E=1014210-1014207;["\056"]=268776+-268748;Z=884603+-884588;["\053"]=-829690+829698}local h=y local H=type local s=string.sub local S=math.floor local C=table.concat local t=table.insert local b=string.char for y=-818041+818042,#h,-831033-(-831034)do local B=h[y]if H(B)=="\115\116\114\105\110\103"then local H=x(B)local k={}local D=-692661+692662 local L=-329194-(-329194)local g=652660+-652660 while D<=H do local y=s(B,D,D)local x=c[y]if x then L=L+x*(-1003839-(-1003903))^((297708-297705)-g)g=g+(679734-679733)if g==534005-534001 then g=532016+-532016 local y=S(L/(-422509+488045))local x=S((L%(915450-849914))/(-470511-(-470767)))local c=L%(-545649+545905)t(k,b(y,x,c))L=-187878+187878 end elseif y=="\061"then t(k,b(S(L/(738423+-672887))))if D>=H or s(B,D+(-500528+500529),D+(670006-670005))~="\061"then t(k,b(S((L%(858553-793017))/(-896892-(-897148)))))end break end D=D+(-184165-(-184166))end h[y]=C(k)end end end return(function(y,h,H,s,S,C,t,T,V,L,k,c,a,d,b,B,W,D,g,R)W,k,c,d,L,a,g,b,D,R,V,B,T=function(y,x)local h=L(x)local H=function()return c(y,{},x,h)end return H end,function()D=(-67041-(-67042))+D B[D]=-513584+513585 return D end,function(c,H,s,S)local g,z,l,U,v,O,E,K,B,m,Z,t,A,M,w,X,p,o,V,e,i,f,r,q,L,u,Q,I,J,N,Y,j,D,n while c do if c<6300921-(-1016576)then if c<3897685-336234 then if c<2381378-185126 then if c<1391585-16289 then if c<36591-(-744055)then if c<-989119+1312344 then if c<-1017472+1102281 then c=f t=Z c=-958590+4628206 else D=L q=820409-820409 z=437486+-437231 c=b[s[-235110-(-235111)]]A=c(q,z)c=15514618-(-977406)B[D]=A D=nil end else b[D]=Z i=b[u]K=1012735+-1012734 w=i+K v=E[w]f=U+v v=302761-302505 c=f%v w=b[m]v=n+w w=109411+-109155 f=v%w U=c n=f c=162341+10515745 end else if c<-886075+1814177 then B=b[s[-222950-(-222951)]]t=#B B=-760056+760056 c=t==B c=c and 16919653-441454 or 6134747-(-874235)else b[D]=e c=b[D]c=c and 124644+3273091 or 1002495+12201876 end end else if c<674229+1230340 then if c<-867067+2396820 then p=b[D]c=p and 131300+3536268 or 1080641-49954 e=p else c=b[s[-34135-(-34145)]]D=b[s[-440174+440185]]B[c]=D c=b[s[-955378-(-955390)]]D={c(B)}t={h(D)}c=y[x(815878-849338)]end else if c<-534961+2668041 then c=b[s[765375-765368]]c=c and 368875+14929128 or 8913585-631220 else o=x(-204262+170828)n=y[o]o=x(-783544+750100)c=329066+9010611 U=n[o]z=U end end end else if c<3945328-573170 then if c<-425325+3519142 then if c<918396+1578314 then if c<2634966-390572 then c=y[x(-592882+559450)]t={}else m=not X M=M+l Y=M<=J Y=m and Y m=M>=J m=X and m Y=m or Y m=8800813-(-725750)c=Y and m Y=523952+14414104 c=c or Y end else c=384108+10856683 g=nil A=nil O=nil end else if c<3556870-187430 then t=x(-1071670-(-1038208))c=y[t]B=x(-673141+639702)t=c(B)t={}c=y[x(-992691-(-959230))]else c=true c=c and-911036+4785458 or 466670+5779921 end end else if c<75170+3330896 then if c<429037+2967530 then c=-358508-(-442990)i=408815-408813 w=E[i]i=b[j]v=w==i Z=v else c=9543107-(-619379)end else if c<4113166-669365 then c=-295785+8194650 else M=k()Y={}l=k()v=nil b[M]=Y Q=x(-712389-(-678965))J=R(328105-(-452718),{M,z,I,V})Y=k()b[Y]=J g=nil q=nil A=nil O=nil q=1409865598003-(-442606)m={}J={}X=x(438090-471535)o=nil b[l]=J E=x(682173-715638)V=T(V)J=y[X]j=b[l]u={[Q]=j,[E]=v}X=J(m,u)D=X J=R(-223463+6146460,{l;M;n;z;I,Y})n=T(n)O=x(950238-983678)M=T(M)A=-772600+9735915007331 z=T(z)I=T(I)Y=T(Y)U=nil L=J l=T(l)V=L(O,A)g=D[V]A=x(160037+-193491)V=x(-975277-(-941821))y[V]=g O=L(A,q)V=D[O]O=x(610326-643764)z=-457838+10032276480237 o=x(-968126+934674)y[O]=V q=x(64994+-98453)A=L(q,z)O=D[A]A=x(392793-426221)q=x(-283817+250370)y[A]=O I=x(-1056145-(-1022720))A=y[q]z=y[I]Y=222311+23933361681066 n=L(o,Y)U=D[n]c=y[x(-265192+231721)]n=x(-845855-(-812409))n=z[n]I={n(z,U)}t={}D=nil L=nil q=A(h(I))A=q()end end end end else if c<-841594+6075800 then if c<2994503-(-882555)then if c<4894124-1037440 then if c<77538+3591010 then if c<4192011-550705 then c=30561+3847445 O=b[V]t=O else p=U==n e=p c=1899610-868923 end else b[D]=t c=9636614-(-1041472)end else if c<3402977-(-471599)then c=-899964+17450358 else J=x(-614451+581000)c=y[J]J=x(630772+-664208)y[J]=c c=13868808-165733 end end else if c<722550+3834897 then if c<-300073+4359930 then A=x(756087+-789544)O=t q=x(194637-228071)t=y[A]A=x(237866-271336)n=x(697629-731063)c=t[A]A=k()b[A]=c t=y[q]q=x(559173-592626)c=t[q]I=c U=y[n]q=c z=U c=U and-844090+3013500 or-3680+9343357 else I=938557+-938554 U=680437+-680372 z=k()o=x(-239969-(-206502))b[z]=t c=b[A]t=c(I,U)Y=a(13401465-(-811577),{})c=-102243+102243 I=k()b[I]=t U=c t=y[o]c=-1029824-(-1029824)n=c o={t(Y)}N=x(-299582-(-266152))t=-692533+692535 c={h(o)}o=c c=o[t]t=x(403116+-436584)Y=c c=y[t]M=b[L]p=y[N]N=p(Y)p=x(-1031936+998494)e=M(N,p)M={e()}t=c(h(M))M=k()b[M]=t e=b[I]t=658484+-658483 p=e c=13069359-806585 e=155813+-155812 N=e e=958910-958910 J=N<e e=t-N end else if c<5117071-83683 then D=b[s[895165-895164]]V=887740+-887738 g=753847+-753846 L=D(g,V)D=184038+-184037 B=L==D c=B and 431917+10291226 or 908988+6267423 t=B else B=x(451667-485103)t=x(202470+-235921)c=y[t]t=y[B]B=x(-205761-(-172325))y[B]=c B=x(1029312+-1062763)c=7167098-(-731767)y[B]=t B=b[s[825018+-825017]]D=B()end end end else if c<6939294-540081 then if c<6442721-324394 then if c<5436886-(-288297)then if c<-385708+5891573 then t={}c=true b[s[427565+-427564]]=c c=y[x(-916638-(-883195))]else f=b[D]Z=f c=f and 193382+15050348 or 356138-(-413421)end else B=H[-455341-(-455342)]c=b[s[321259-321258]]D=H[493615+-493613]L=c c=L[D]c=c and 11506175-(-458606)or 14368215-452654 end else if c<5501888-(-739895)then D=x(-906812+873381)L=812281+12115602 t=9760202-751287 B=D^L c=t-B B=c t=x(-794362-(-760888))c=t/B t={c}c=y[x(-758968+725527)]else c=W(2460330-(-954302),{g})p={c()}t={h(p)}c=y[x(-343275+309809)]end end else if c<1043008+6054754 then if c<6802640-1440 then o=not n I=I+U q=I<=z q=o and q o=I>=z o=n and o q=o or q o=9499394-(-126500)c=q and o q=2060382-(-446958)c=c or q else L=x(-585099-(-551665))D=y[L]L=x(-128100+94636)B=D[L]L=b[s[-179109-(-179110)]]c=y[x(-857969-(-824506))]D={B(L)}t={h(D)}end else if c<-75042+7223786 then L=-331342-(-331562)D=b[s[676085+-676082]]c=-799097+12106962 B=D*L D=542642-542385 t=B%D b[s[810297+-810294]]=t else D=b[s[761464+-761462]]L=b[s[125223-125220]]c=11210614-487471 B=D==L t=B end end end end end else if c<381548+11200881 then if c<-126052+10101785 then if c<9961652-620211 then if c<-916092+9202510 then if c<8256473-74082 then if c<6886761-(-915452)then t=x(-681461+647993)c=y[t]q=x(582642+-616109)g=x(994282-1027712)B=b[s[705786-705782]]L=y[g]A=y[q]z=d(5990231-(-169317),{})q={A(z)}A=-901178-(-901180)O={h(q)}V=O[A]g=L(V)L=x(-457743-(-424301))D=B(g,L)B={D()}t=c(h(B))B=t D=b[s[103779+-103774]]t=D c=D and 12568224-971070 or 909372+11382587 else c=true c=c and 5099964-(-47841)or 10173911-(-169829)end else L=b[s[-740407+740416]]c={}B=c D=-236327+236328 g=L L=247849-247848 V=L L=544-544 c=357803+16134221 O=V<L L=D-V end else if c<9157245-172261 then N=x(-871163+837733)c=y[N]l=x(-444233-(-410797))J=y[l]N=c(J)c=x(-639582-(-606131))y[c]=N c=132132+13570943 else c=I t=z c=z and 5017401-577202 or 316394+9029427 end end else if c<9860597-238695 then if c<10468852-987839 then I=x(-879070-(-845626))z=y[I]c=4002713-(-437486)t=z else Y=M c=131940+2172642 m=Y o[Y]=m Y=nil end else if c<9591277-(-69922)then q=I N=x(609474-642932)c=6306720-(-362283)p=y[N]N=x(-799733-(-766264))e=p[N]p=e(B,q)e=b[s[-724342+724348]]N=e()M=p+N Y=M+O M=-251496-(-251752)o=Y%M M=L[D]N=966271-966270 O=o p=O+N e=g[p]q=nil Y=M..e L[D]=Y else Z=b[D]t=Z c=Z and 9241082-(-748343)or 4281763-612147 end end end else if c<-922429+12050155 then if c<10682242-223271 then if c<10704148-384044 then if c<9079114-(-921725)then i=-534256-(-534257)f=c w=E[i]i=false v=w==i Z=v c=v and 4209121-828794 or 662580-578098 else L=T(L)D=T(D)L=nil n=nil V=T(V)A=T(A)Y=nil A=x(389164+-422621)g=T(g)M=T(M)U=nil o=nil I=T(I)M=-272808+273064 z=T(z)D=nil O=nil I=k()q=nil o={}O=x(213543+-247000)V=y[O]n=k()O=x(51106+-84554)g=V[O]V=k()U={}b[V]=g c=379116+1925466 O=y[A]z=x(916604+-950062)A=x(-1022589-(-989119))g=O[A]q=x(392556+-425990)A=y[q]q=x(-29976-3488)Y=747575+-747574 O=A[q]q=y[z]z=x(782392+-815865)A=q[z]q=-900668-(-900668)z=k()b[z]=q q=-233703+233705 b[I]=q q={}J=M M=516337-516336 l=M M=-802489-(-802489)b[n]=U X=l<M M=Y-l U=318890+-318890 end else c=y[x(344573-378028)]t={}end else if c<-308202+11005326 then c=13230644-967870 Q=T(Q)X=T(X)j=T(j)E=nil u=T(u)l=T(l)m=T(m)else c=t and 8242076-708790 or-252904+2201123 end end else if c<11866633-521008 then if c<10937295-(-335018)then t={D}c=y[x(515230-548657)]else L=527217-527216 D=b[s[-92064-(-92067)]]B=D~=L c=B and-943549+12410139 or-987519+8106584 end else if c<-550385+12021376 then L=-697430-(-697462)U=-1009215+1009228 D=b[s[668469+-668466]]B=D%L z=-75554+75556 g=b[s[-626675+626679]]A=b[s[521842-521840]]Y=b[s[502704+-502701]]o=Y-B Y=267464-267432 n=o/Y I=U-n q=z^I O=A/q V=g(O)g=-286633+4295253929 q=-71202+71203 L=V%g V=-299111-(-299113)g=V^B D=L/g g=b[s[-965374+965378]]A=D%q q=4294681623-(-285673)O=A*q V=g(O)g=b[s[-1039100-(-1039104)]]O=g(D)A=674803-609267 L=V+O U=-816889-(-817145)V=-48036-(-113572)g=L%V O=L-g D=nil c=962814+6046168 V=O/A A=-446574+446830 O=g%A z=108835+-108579 q=g-O A=q/z z=-240999-(-241255)q=V%z g=nil I=V-q z=I/U I={O,A;q;z}O=nil z=nil B=nil q=nil V=nil b[s[-762551-(-762552)]]=I A=nil L=nil else l=k()X=x(-694629-(-661172))b[l]=e t=y[X]m=-869719-(-869819)X=x(-7005-26465)c=t[X]X=705974+-705973 u=-707447-(-707702)t=c(X,m)m=-147749-(-147749)X=k()b[X]=t c=b[A]t=c(m,u)u=885499+-885498 m=k()b[m]=t c=b[A]E=1040002-1040000 Q=b[X]t=c(u,Q)u=k()b[u]=t r=-640612-(-650612)t=b[A]j=745976-745975 Q=t(j,E)t=26273+-26272 c=Q==t Q=k()v=x(431576-465006)E=x(-918029-(-884603))K=-868027-(-868027)t=x(-995455+962013)b[Q]=c f=y[v]w=b[A]i={w(K,r)}v=f(h(i))f=x(-553538-(-520112))Z=v..f c=x(-955582+922110)j=E..Z E=x(673269+-706736)c=Y[c]c=c(Y,t,j)j=k()Z=a(5077499-490351,{A,l;I;L;D;M,Q,j,X;u;m;z})b[j]=c t=y[E]E={t(Z)}c={h(E)}E=c c=b[Q]c=c and 10750185-774584 or-655220+6352418 end end end end else if c<363691+13712245 then if c<916540+11448612 then if c<12888623-631988 then if c<-439278+12417990 then if c<614259+11195784 then L=b[s[875905-875899]]D=L==B t=D c=291561+12000398 else c=11970702-729911 end else M=#o J=966142-966142 Y=M==J c=Y and 3557388-39329 or-412269+12937707 end else if c<484015+11795859 then l=not J e=e+N t=e<=p t=l and t l=e>=p l=J and l t=l or t l=11351739-(-133284)c=t and l t=1040384+468526 c=c or t else c=-854202+2802421 b[s[-230370-(-230375)]]=t B=nil end end else if c<-339179+13929537 then if c<12707228-(-416045)then M=714295-714294 J=#o Y=g(M,J)M=O(o,Y)m=-1027712+1027713 Y=nil J=b[n]X=M-m c=706806+11286648 l=A(X)J[M]=l M=nil else c=true c=6153372-(-93219)end else if c<455342+13281564 then c=25761+16524633 else c={}b[s[936765+-936763]]=c q=x(-708918+675460)c=7095736-426733 V=676085+35184371412747 t=b[s[-647412+647415]]A=-366444-(-366699)g=t t=D%V b[s[-478827-(-478831)]]=t O=D%A I=-419116-(-419117)A=902718-902716 V=O+A b[s[256616+-256611]]=V A=y[q]q=x(-417581+384148)O=A[q]A=O(B)q=511153-511152 O=x(259816+-293238)U=I z=A I=607667-607667 L[D]=O O=547313+-547217 n=U<I I=q-U end end end else if c<778808+14656897 then if c<664949+14568585 then if c<15508318-581298 then if c<-639348+15022033 then D=x(361559-394988)t=1971100-(-778936)L=15343604-(-149989)B=D^L c=t-B B=c t=x(68258+-101708)c=t/B t={c}c=y[x(270348-303785)]else N=-1004991+1004992 c=b[A]J=720374+-720368 p=c(N,J)c=x(-498863+465412)y[c]=p J=x(1029696+-1063147)N=y[J]J=282923-282921 c=N>J c=c and 8077975-(-885371)or-1312+3876758 end else J=-554737-(-554737)M=#o c=-59234+12584672 Y=M==J end else if c<14929712-(-342059)then v=999296-999295 f=E[v]c=-809465+1579024 Z=f else B=x(-663722-(-630260))c=y[B]L=-377196-(-377196)D=b[s[-25561-(-25569)]]B=c(D,L)c=9275708-993343 end end else if c<16207345-(-273448)then if c<16898920-780536 then B=H D=k()c=true L=x(641347-674805)b[D]=c t=y[L]L=x(972080-1005503)V=k()c=t[L]L=k()b[L]=c c=a(2995899-(-372652),{})g=k()b[g]=c c=false A=x(202598+-236065)b[V]=c O=y[A]q=d(440302+5035705,{V})A=O(q)t=A c=A and-944445+4572075 or 2960762-(-917244)else L=186918+-186829 D=b[s[682807-682805]]B=D*L D=892924+20963300486215 t=B+D D=-234022-(-234023)B=35184373023805-934973 c=t%B b[s[-290599-(-290601)]]=c c=6664683-(-454382)B=b[s[-940413+940416]]t=B~=D end else if c<15904129-(-622067)then A=not O L=L+V D=L<=g D=A and D A=L>=g A=O and A D=A or D A=-587698+672692 c=D and A D=-439790+2029086 c=c or D else c=true c=c and-557873+15484665 or-279081+2505837 end end end end end end end c=#S return h(t)end,function(y,x)local h=L(x)local H=function(H,s,S,C,t)return c(y,{H;s,S;C;t},x,h)end return H end,function(y)for x=-326889-(-326890),#y,39010-39009 do B[y[x]]=(-799929+799930)+B[y[x]]end if H then local c=H(true)local h=S(c)h[x(348636-382060)],h[x(-608987-(-575538))],h[x(243048+-276483)]=y,g,function()return 708854+947133 end return c else return s({},{[x(612299-645748)]=g,[x(-843657-(-810233))]=y,[x(266254-299689)]=function()return 169829+1486158 end})end end,function(y,x)local h=L(x)local H=function(H,s,S,C)return c(y,{H,s;S;C},x,h)end return H end,function(y)local x,c=94564-94563,y[972670+-972669]while c do B[c],x=B[c]-(-35104-(-35105)),x+(-758199+758200)if B[c]==584882+-584882 then B[c],b[c]=nil,nil end c=y[x]end end,{},319210-319210,function(y,x)local h=L(x)local H=function(H,s)return c(y,{H,s},x,h)end return H end,function(y,x)local h=L(x)local H=function(...)return c(y,{...},x,h)end return H end,{},function(y)B[y]=B[y]-(-562417+562418)if 357291-357291==B[y]then B[y],b[y]=nil,nil end end return(V(16609884-607859,{}))(h(t))end)(getfenv and getfenv()or _ENV,unpack or table[x(-21409+-12035)],newproxy,setmetatable,getmetatable,select,{...})end)(...)
+--[[ 
+    Title: Dupe Tools + Candy Auto-Farm (Integrated & Robust)
+    Description: Dupe Tools window (draggable, rounded, animated) with integrated Candy Auto-Farm panel and Fun / Miscellaneous panel. 
+    Resilient against player resets.
+]]
+
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local coreGui = game:GetService("StarterGui")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local player = Players.LocalPlayer
+if not player then return end
+
+local PlayerGui = player:WaitForChild("PlayerGui")
+
+-- Disable default core GUIs
+pcall(function() coreGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, false) end)
+
+-- =======================================================================================
+-- GLOBAL CHARACTER HELPER (Robust against resets)
+-- =======================================================================================
+local function waitForCharacter()
+    -- This function ensures we always retrieve the latest character and its parts, 
+    -- waiting for the character to load if it's nil (i.e., during a respawn).
+    local char = player.Character or player.CharacterAdded:Wait()
+    local hrpPart = char:WaitForChild("HumanoidRootPart", 5)
+    local humanoidInst = char:FindFirstChildOfClass("Humanoid")
+    return char, hrpPart, humanoidInst
+end
+
+
+--// CONFIGURATION
+local WINDOW_NAME = "Dupe Tools"
+local INITIAL_WIDTH = 150 
+local FINAL_SIZE = UDim2.new(0.25, 0, 0.35, 0)
+local DEFAULT_SIZE = UDim2.new(0.25, 0, 0.35, 0) -- Stored default size
+local TITLE_BAR_HEIGHT = 30
+local BUTTON_SIZE = UDim2.new(0, 12, 0, 12)
+local BUTTON_MARGIN = 8
+local BUTTON_SPACING = 6
+local CORNER_RADIUS = 10
+local TRANSPARENCY = 0.3 -- slightly translucent
+
+local COLORS = {
+	Main = Color3.fromRGB(2, 13, 33),
+	TitleBar = Color3.fromRGB(12, 23, 50),
+	Text = Color3.new(1, 1, 1),
+	ButtonClose = Color3.fromRGB(255, 95, 86),
+	ButtonMinimize = Color3.fromRGB(255, 189, 46),
+	ButtonOther = Color3.fromRGB(39, 205, 64),
+    ButtonBrainrotActive = Color3.fromRGB(120, 0, 0), -- Dark Red
+    ButtonBrainrotInactive = Color3.fromRGB(30, 30, 30), -- Dark Gray/Black
+}
+
+local TWEEN_INFO = TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+--// GUI STATE FOR FULL-SCREEN TOGGLE
+local fullScreen = false
+local minimized = false
+local debounce = false
+local originalSize = DEFAULT_SIZE
+local originalPosition = UDim2.new(0.5, 0, 0.5, 0) 
+
+-- =======================================================================================
+-- 1. Brainrot Stealer Core Logic 
+-- =======================================================================================
+local BrainrotStealer = {}
+do
+    -- CONFIG (from user's script)
+    local DROP_REMOTE_PATH = {"Remotes", "DropBrainrotEvent"}
+    local TARGET_Y = 10 -- Locked Y-axis coordinate (operational plane)
+    local DROP_Y = -15 -- Target Y for the drop spot
+    local DROP_COORDS = Vector3.new(-17.20, DROP_Y, -34.68) -- Dedicated drop spot
+    local LOOP_DELAY = 0.6
+    local TELEPORT_OFFSET = Vector3.new(0, 2, 0) -- Vertical offset for HRP above the ground plane
+    local PROMPT_NAME = "Steal"
+
+    -- State Management
+    local running = false
+    local stealTask = nil
+    local currentRigBlock = nil
+    local currentHighlight = nil
+    
+    -- Prefixes / suffixes for matching brainrots
+    local PREFIXES = {"rainbow", "gold", "diamond", "undead"}
+    local SUFFIXES = {
+        "67","amalgamation","antonio","avocadini antilopini","ballerina","banantta","bobrito bandito",
+        "boneca","brainrot god lucky block","brr brr patapim","bulbito bandito traktorito",
+        "burbaloni luliloli","cacto hipopotamo","cappuccino","caramellino tricksterino",
+        "chef crabracadabra","chimpanzini","crocodilo","dragon cannelloni","esok sekolah",
+        "espresso signora","fantazmo cerebellino","frigo camelo","ganzanzelli","garama and madundung",
+        "glorbo","gorillo","graipus","gusini","halloween 67","halloweeni pumpkini",
+        "jackie o lanterno","job job job sahur","ketchuru and musturu","ketupat kepak",
+        "lirilí larila","lololo","los primos","los tralaleritos","pakrahmatmamat","phantomina triorina",
+        "pi pi watermelon","pot hotspot","pumpkino financini","rhino toasterino","saturno",
+        "skelettino capitano","smurf cat","strawberrelli flamingelli","strawberry elephant",
+        "ta sahur","tang tang keletang","tictac sahur","tigroligre frutonni","to to to sahur",
+        "tralalero","tralalita tralala","trippi troppi","tung","udin dun","watermelunni",
+        "witcharella spyderina","zibra zubra"
+    }
+    local normalizedSuffixes = {}
+    for _, s in ipairs(SUFFIXES) do table.insert(normalizedSuffixes, s:lower()) end
+
+    -- Cached drop remote
+    local dropRemoteCache
+    local function getDropRemote()
+        if dropRemoteCache then return dropRemoteCache end
+        local root = ReplicatedStorage
+        for _, name in ipairs(DROP_REMOTE_PATH) do
+            local child = root:FindFirstChild(name)
+            if not child then return nil end
+            root = child
+        end
+        dropRemoteCache = root
+        return dropRemoteCache
+    end
+
+    -- Function to configure the prompt for infinite range and visibility
+    local function configurePrompt(prompt)
+        if prompt and prompt:IsA("ProximityPrompt") and prompt.Name == PROMPT_NAME then
+            pcall(function()
+                prompt.MaxActivationDistance = 1000000
+                prompt.Exclusivity = Enum.ProximityPromptExclusivity.AlwaysShow
+            end)
+        end
+    end
+
+    -- Block Management
+    local function updateRigBlock(hrpPart)
+        if not currentRigBlock then
+            local block = Instance.new("Part")
+            block.Size = Vector3.new(10, 1, 10) -- 10x1x10 clipped block
+            block.Material = Enum.Material.Plastic
+            block.Color = Color3.fromRGB(200, 50, 50) -- Red
+            block.Transparency = 0.5
+            block.Anchored = true
+            block.CanCollide = true -- Clipped/solid
+            block.Name = "RigSupportBlock"
+            block.Parent = workspace
+            currentRigBlock = block
+        end
+        
+        -- Position the block's center exactly at TARGET_Y, following HRP's X/Z
+        local targetPos = Vector3.new(hrpPart.Position.X, TARGET_Y, hrpPart.Position.Z)
+        currentRigBlock.CFrame = CFrame.new(targetPos) 
+    end
+
+    local function cleanupRigBlock()
+        if currentRigBlock then
+            currentRigBlock:Destroy()
+            currentRigBlock = nil
+        end
+    end
+
+    local function cleanupHighlight()
+        if currentHighlight then
+            currentHighlight:Destroy()
+            currentHighlight = nil
+        end
+    end
+
+    -- Tween helper with Y-lock
+    local function tweenTo(position, time)
+        -- Use the robust helper to get the latest character parts
+        local _, hrpPart, humanoidInst = waitForCharacter() 
+        if not hrpPart or not hrpPart:IsA("BasePart") or not humanoidInst then return end
+
+        local yLock = position.Y
+        if position.Y ~= DROP_Y then
+            yLock = TARGET_Y
+        end
+        
+        local lockedPosition = Vector3.new(position.X, yLock, position.Z) 
+        
+        local goal = {CFrame = CFrame.new(lockedPosition + TELEPORT_OFFSET)}
+        local tweenInfo = TweenInfo.new(time, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local tween = TweenService:Create(hrpPart, tweenInfo, goal)
+
+        tween:Play()
+        tween.Completed:Wait() 
+    end
+
+    -- Instant ProximityPrompt
+    local function activatePromptInstant(prompt)
+        if not prompt or not prompt:IsA("ProximityPrompt") then return false end
+        local ok, err = pcall(function()
+            local old = prompt.HoldDuration
+            prompt.HoldDuration = 0
+            prompt:InputHoldBegin()
+            task.wait(0.03)
+            prompt:InputHoldEnd()
+            prompt.HoldDuration = old
+        end)
+        return ok, err
+    end
+
+    -- Name check
+    local function nameMatchesAllowed(modelName)
+        if not modelName or modelName == "" then return false end
+        local lower = modelName:lower()
+        for _, p in ipairs(PREFIXES) do
+            if lower:find(p,1,true) then
+                for _, suf in ipairs(normalizedSuffixes) do
+                    if lower:find(suf,1,true) then return true end
+                end
+                if lower:find("67",1,true) then return true end
+                return true
+            end
+        end
+        for _, suf in ipairs(normalizedSuffixes) do
+            if lower:find(suf,1,true) then return true end
+        end
+        return false
+    end
+
+    -- Find nearest ProximityPrompt
+    local function findNearestAllowedPrompt()
+        local _, hrpPart = waitForCharacter()
+        local bestPrompt, bestDist
+        if not hrpPart then return nil end
+
+        for _, prompt in ipairs(workspace:GetDescendants()) do
+            if prompt:IsA("ProximityPrompt") and prompt.Name == PROMPT_NAME then
+                local parent = prompt.Parent
+                if parent then
+                    local model = parent
+                    if model:IsA("BasePart") and parent.Parent and parent.Parent:IsA("Model") then
+                        model = parent.Parent
+                    end
+                    local modelName = model.Name or (parent.Name or "")
+                    if nameMatchesAllowed(modelName) then
+                        local pivot
+                        if parent:IsA("BasePart") then
+                            pivot = parent.Position
+                        elseif model:IsA("Model") then
+                            if model.PrimaryPart and model.PrimaryPart:IsA("BasePart") then
+                                pivot = model.PrimaryPart.Position
+                            else
+                                for _, d in ipairs(model:GetDescendants()) do
+                                    if d:IsA("BasePart") then
+                                        pivot = d.Position
+                                        break
+                                    end
+                                end
+                            end
+                        end
+                        if pivot then
+                            local dist = (pivot - hrpPart.Position).Magnitude
+                            if not bestDist or dist < bestDist then
+                                bestDist = dist
+                                bestPrompt = {prompt = prompt, pivot = pivot}
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        return bestPrompt
+    end
+
+    -- Core loop
+    local function coreLoop()
+        local dropRemote = getDropRemote()
+        local _, hrpPart, humanoidInst = waitForCharacter()
+        
+        -- LOCK RIG: Prevent movement/falling and enforce sitting
+        if humanoidInst then 
+            humanoidInst.PlatformStand = true 
+            humanoidInst.Sit = true 
+        end
+
+        -- Run the loop indefinitely until BrainrotStealer.Stop() is called
+        while running do 
+            local ok, err = pcall(function()
+                -- Check for valid parts again inside the loop (redundant but safe)
+                if not hrpPart or not humanoidInst or not hrpPart.Parent then 
+                    error("Character parts lost during loop execution.") 
+                end
+                
+                -- 0. CONSTANTLY UPDATE SUPPORT BLOCK
+                updateRigBlock(hrpPart)
+
+                local found = findNearestAllowedPrompt()
+                
+                if found and found.prompt then
+                    local targetModel = found.prompt.Parent:FindFirstAncestorOfClass("Model") or found.prompt.Parent
+                    
+                    -- 1. HIGHLIGHT TARGET
+                    currentHighlight = Instance.new("SelectionBox")
+                    currentHighlight.Color3 = Color3.fromRGB(255, 255, 0) -- Bright Yellow
+                    currentHighlight.LineThickness = 0.1
+                    currentHighlight.Adornee = targetModel
+                    currentHighlight.Parent = targetModel
+                    
+                    -- 2. Tween to brainrot (Moves to TARGET_Y=10)
+                    tweenTo(found.pivot, 0.4)
+                    task.wait(0.06)
+                    activatePromptInstant(found.prompt)
+
+                    -- 3. Tween to drop spot (Moves to DROP_Y=-15)
+                    tweenTo(DROP_COORDS, 0.6)
+                    task.wait(0.06)
+
+                    -- 4. Fire drop remote
+                    if dropRemote and dropRemote.FireServer then
+                        pcall(function() dropRemote:FireServer() end)
+                    end
+                    
+                    -- 5. CLEANUP HIGHLIGHT after cycle
+                    cleanupHighlight()
+                else
+                    task.wait(0.6)
+                end
+            end)
+            if not ok then warn("Error in BrainrotStealer coreLoop:", err) end
+            task.wait(LOOP_DELAY)
+        end
+        
+        -- Final cleanup when loop exits
+        local _, _, finalHumanoid = waitForCharacter()
+        if finalHumanoid then
+            finalHumanoid.PlatformStand = false
+            finalHumanoid.Sit = false
+        end
+        cleanupRigBlock()
+        cleanupHighlight()
+    end
+
+    -- Cleanup function called on stop/respawn
+    local function performCleanup()
+        local _, _, humanoidInst = waitForCharacter()
+        if humanoidInst then
+            humanoidInst.PlatformStand = false
+            humanoidInst.Sit = false
+        end
+        cleanupRigBlock()
+        cleanupHighlight()
+    end
+
+    -- API Functions for GUI control
+    function BrainrotStealer.Start()
+        if running then return end
+        running = true
+        
+        local char, hrpPart, humanoidInst = waitForCharacter()
+        if not char or not hrpPart or not humanoidInst then
+            running = false
+            warn("Failed to find character parts for Stealer. Bot cannot start.")
+            return
+        end
+
+        -- Run the core logic in a separate thread
+        stealTask = task.spawn(coreLoop)
+    end
+
+    function BrainrotStealer.Stop()
+        if not running then return end
+        running = false
+        if stealTask then
+            task.cancel(stealTask) 
+            stealTask = nil
+        end
+        performCleanup() 
+    end
+    
+    function BrainrotStealer.IsRunning()
+        return running
+    end
+    
+    -- INITIAL PROMPT SETUP & CHARACTER REMOVAL HOOK
+    for _, prompt in ipairs(workspace:GetDescendants()) do
+        configurePrompt(prompt)
+    end
+    workspace.DescendantAdded:Connect(function(desc)
+        if desc:IsA("ProximityPrompt") and desc.Name == PROMPT_NAME then
+            configurePrompt(desc)
+        end
+    end)
+    -- Stop the bot when the character is lost
+    player.CharacterRemoving:Connect(BrainrotStealer.Stop)
+end
+
+
+--// GUI CREATION
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "TrafficLightGUI"
+ScreenGui.ResetOnSpawn = false -- Keep the GUI instance on reset
+ScreenGui.IgnoreGuiInset = true
+ScreenGui.Parent = PlayerGui
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = WINDOW_NAME
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.Size = UDim2.new(0, INITIAL_WIDTH, 0, TITLE_BAR_HEIGHT + 10)
+MainFrame.BackgroundColor3 = COLORS.Main
+MainFrame.BackgroundTransparency = 1
+MainFrame.BorderSizePixel = 0
+MainFrame.ClipsDescendants = true
+MainFrame.Parent = ScreenGui
+Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, CORNER_RADIUS)
+
+--// TITLE BAR
+local TitleBar = Instance.new("Frame")
+TitleBar.Name = "TitleBar"
+TitleBar.Size = UDim2.new(1, 0, 0, TITLE_BAR_HEIGHT)
+TitleBar.BackgroundColor3 = COLORS.TitleBar
+TitleBar.BackgroundTransparency = 1
+TitleBar.BorderSizePixel = 0
+TitleBar.ZIndex = 2
+TitleBar.Active = true 
+TitleBar.Parent = MainFrame
+Instance.new("UICorner", TitleBar).CornerRadius = UDim.new(0, CORNER_RADIUS)
+
+local Title = Instance.new("TextLabel")
+Title.Text = WINDOW_NAME
+Title.AnchorPoint = Vector2.new(0.5, 0)
+Title.Position = UDim2.new(0.5, 0, 0, 0)
+Title.Size = UDim2.new(1, -80, 1, 0)
+Title.BackgroundTransparency = 1
+Title.TextColor3 = COLORS.Text
+Title.Font = Enum.Font.SourceSansBold
+Title.TextSize = 16
+Title.TextTransparency = 1
+Title.ZIndex = 3
+Title.Parent = TitleBar
+
+--// BUTTON CREATOR
+local function makeButton(name, color, tooltipText, index)
+	local Button = Instance.new("TextButton")
+	Button.Name = name .. "Button"
+	Button.Size = BUTTON_SIZE
+	Button.Position = UDim2.new(0, BUTTON_MARGIN + (index - 1) * (BUTTON_SIZE.X.Offset + BUTTON_SPACING), 0.5, -6)
+	Button.BackgroundColor3 = color
+	Button.BorderSizePixel = 0
+	Button.AutoButtonColor = false
+	Button.Text = ""
+	Button.BackgroundTransparency = 1
+	Button.ZIndex = 4
+	Button.Parent = TitleBar
+
+	Instance.new("UICorner", Button).CornerRadius = UDim.new(1, 0)
+
+	local Tooltip = Instance.new("TextLabel")
+	Tooltip.Size = UDim2.new(0, 100, 0, 20)
+	Tooltip.Position = UDim2.new(0.5, -50, 0, 18)
+	Tooltip.BackgroundTransparency = 1
+	Tooltip.TextColor3 = Color3.new(1, 1, 1)
+    Tooltip.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+	Tooltip.Font = Enum.Font.SourceSans
+	Tooltip.TextSize = 13
+	Tooltip.Text = tooltipText
+	Tooltip.Visible = false
+	Tooltip.TextTransparency = 1
+	Tooltip.ZIndex = 5
+    Tooltip.Name = "TooltipLabel"
+	Tooltip.Parent = Button
+
+	Button.MouseEnter:Connect(function()
+		Tooltip.Visible = true
+		TweenService:Create(Tooltip, TweenInfo.new(0.15), {BackgroundTransparency = 0, TextTransparency = 0}):Play()
+	end)
+
+	Button.MouseLeave:Connect(function()
+		TweenService:Create(Tooltip, TweenInfo.new(0.15), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
+		task.delay(0.15, function() Tooltip.Visible = false end)
+	end)
+
+	return Button
+end
+
+local Red = makeButton("Close", COLORS.ButtonClose, "Close", 1)
+local Yellow = makeButton("Minimize", COLORS.ButtonMinimize, "Minimize", 2)
+local Green = makeButton("Maximize", COLORS.ButtonOther, "Full-Screen Mode", 3) 
+
+--// CONTENT FRAME (main area)
+local Content = Instance.new("Frame")
+Content.Size = UDim2.new(1, 0, 1, -TITLE_BAR_HEIGHT)
+Content.Position = UDim2.new(0, 0, 0, TITLE_BAR_HEIGHT)
+Content.BackgroundColor3 = COLORS.Main
+Content.BackgroundTransparency = TRANSPARENCY
+Content.BorderSizePixel = 0
+Content.ZIndex = 1
+Content.Parent = MainFrame
+Content.ClipsDescendants = true
+
+local Label = Instance.new("TextLabel")
+Label.Size = UDim2.new(1, 0, 1, 0)
+Label.BackgroundTransparency = 1
+Label.Text = "" 
+Label.TextColor3 = Color3.new(1, 1, 1)
+Label.Font = Enum.Font.SourceSans
+Label.TextSize = 20
+Label.TextTransparency = 1
+Label.ZIndex = 2
+Label.Parent = Content
+
+-- Create a top-level UI container inside Content for controls
+local ControlsFrame = Instance.new("Frame")
+ControlsFrame.Size = UDim2.new(1, -20, 1, -20)
+ControlsFrame.Position = UDim2.new(0, 10, 0, 10)
+ControlsFrame.BackgroundTransparency = 1
+ControlsFrame.Parent = Content
+
+-- Layout for ControlsFrame
+local controlsLayout = Instance.new("UIListLayout")
+controlsLayout.FillDirection = Enum.FillDirection.Vertical
+controlsLayout.SortOrder = Enum.SortOrder.LayoutOrder
+controlsLayout.Padding = UDim.new(0, 8)
+controlsLayout.Parent = ControlsFrame
+
+-- Simple helper to create buttons in ControlsFrame
+local function createControlButton(text, width)
+	local btn = Instance.new("TextButton")
+	btn.Size = UDim2.new(0, width or 180, 0, 36)
+	btn.BackgroundTransparency = 0
+	btn.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
+	btn.TextColor3 = Color3.new(1, 1, 1)
+	btn.Font = Enum.Font.SourceSansBold
+	btn.TextSize = 14
+	btn.Text = text
+	Instance.new("UICorner", btn).CornerRadius = UDim.new(0,6)
+	btn.Parent = ControlsFrame
+	return btn
+end
+
+-- MAIN CONTROL BUTTONS
+local candyLauncher = createControlButton("Candy Auto-Farm", 200)
+local funLauncher = createControlButton("Fun / Miscellaneous", 200) -- RENAMED
+local settingsLauncher = createControlButton("Settings", 200)
+
+--// DRAGGING FIXED
+do
+    local dragging = false
+    local dragStart = Vector2.zero
+    local startPos = UDim2.new()
+
+    local function moveFrame(inputPos)
+        local delta = inputPos - dragStart
+        MainFrame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
+
+    TitleBar.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = MainFrame.Position
+
+            local moveConnection
+            moveConnection = UserInputService.InputChanged:Connect(function(moveInput)
+                if dragging and (moveInput.UserInputType == Enum.UserInputType.MouseMovement or moveInput.UserInputType == Enum.UserInputType.Touch) then
+                    moveFrame(moveInput.Position)
+                end
+            end)
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                    moveConnection:Disconnect()
+                end
+            end)
+        end
+    end)
+end
+
+-- =======================================================================================
+-- 3. Panel Management and UI Wire-up
+-- =======================================================================================
+local FunPanel 
+local funPanelOpen = false 
+local slidePanel 
+local panelOpen = false
+local SettingsPanel -- NEW
+local settingsPanelOpen = false -- NEW
+local panelAnimationTime = 0.35
+
+-- Forward declare
+local function closePanel() end
+local function closeFunPanel() end
+local function closeSettingsPanel() end
+
+function closeFunPanel() 
+	if FunPanel and funPanelOpen then
+		-- Slide back to right off-screen
+		TweenService:Create(FunPanel, TWEEN_INFO, {
+			Position = UDim2.new(1, 0, 0, TITLE_BAR_HEIGHT)
+		}):Play()
+		funPanelOpen = false
+	end
+end
+
+local function openFunPanel() 
+	if funPanelOpen then return end
+	if panelOpen then closePanel() end
+    if settingsPanelOpen then closeSettingsPanel() end -- NEW
+	
+	local currentFrameWidth = MainFrame.AbsoluteSize.X
+	local newPanelWidth = math.floor(currentFrameWidth * 0.6)
+	if FunPanel then FunPanel.Size = UDim2.new(0, newPanelWidth, 1, -TITLE_BAR_HEIGHT) end
+	
+	-- Slide to the left by the panel's width
+	if FunPanel then
+        TweenService:Create(FunPanel, TWEEN_INFO, {
+            Position = UDim2.new(1, -newPanelWidth, 0, TITLE_BAR_HEIGHT)
+        }):Play()
+        funPanelOpen = true
+    end
+end
+
+local function openPanel() -- Candy Panel
+	if panelOpen then return end
+	if funPanelOpen then closeFunPanel() end
+    if settingsPanelOpen then closeSettingsPanel() end -- NEW
+	
+	local currentFrameWidth = MainFrame.AbsoluteSize.X
+	local panelWidth = math.floor(currentFrameWidth * 0.6)
+	if slidePanel then slidePanel.Size = UDim2.new(0, panelWidth, 1, -TITLE_BAR_HEIGHT) end
+	
+	if slidePanel then
+        TweenService:Create(slidePanel, TweenInfo.new(panelAnimationTime, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = UDim2.new(0, 0, 0, TITLE_BAR_HEIGHT)}):Play()
+        panelOpen = true
+    end
+end
+
+function closePanel() -- Candy Panel
+	if not panelOpen then return end
+	if slidePanel then TweenService:Create(slidePanel, TweenInfo.new(panelAnimationTime, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {Position = UDim2.new(-1, 0, 0, TITLE_BAR_HEIGHT)}):Play() end
+	panelOpen = false
+end
+
+-- NEW FUNCTIONS for Settings Panel
+function closeSettingsPanel()
+    if not settingsPanelOpen or not SettingsPanel then return end
+    TweenService:Create(SettingsPanel, TweenInfo.new(panelAnimationTime, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+        Size = UDim2.new(1, 0, 0, 0)
+    }):Play()
+    settingsPanelOpen = false
+end
+
+local function openSettingsPanel()
+    if settingsPanelOpen or not SettingsPanel then return end
+    -- Close other panels
+    if panelOpen then closePanel() end
+    if funPanelOpen then closeFunPanel() end
+    
+    -- Animate open
+    TweenService:Create(SettingsPanel, TweenInfo.new(panelAnimationTime, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        Size = UDim2.new(1, 0, 1, -TITLE_BAR_HEIGHT)
+    }):Play()
+    settingsPanelOpen = true
+end
+
+
+-- ===============================================================================
+-- // BUTTON LOGIC (FIXED FOR ROBUSTNESS ACROSS STATES)
+-- ===============================================================================
+
+local guiElements = {TitleBar, Content, Title, Label, Red, Yellow, Green, MainFrame, candyLauncher, funLauncher, settingsLauncher}
+-- This list needs to include the back buttons from the panels for the fade out
+task.wait() -- wait for panels to be created
+if slidePanel then 
+    local backBtn = slidePanel:FindFirstChild("pad"):FindFirstChildOfClass("TextButton")
+    if backBtn then table.insert(guiElements, backBtn) end
+end
+if FunPanel then 
+    local backBtn = FunPanel:FindFirstChild("funPad"):FindFirstChildOfClass("TextButton")
+    if backBtn then table.insert(guiElements, backBtn) end
+end
+-- SettingsPanel will be created later, we'll add its button then
+
+
+Red.MouseButton1Click:Connect(function()
+	if debounce then return end
+	debounce = true
+    
+    -- Stop all bots on close
+    BrainrotStealer.Stop()
+    Candy.Stop()
+    
+	local fadeOut = TweenInfo.new(0.6, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+    
+    -- Fade out all necessary elements
+	for _, obj in ipairs(guiElements) do
+		if obj:IsA("TextLabel") or obj:IsA("TextButton") then
+			TweenService:Create(obj, fadeOut, {TextTransparency = 1}):Play()
+		end
+		if obj:IsA("Frame") or obj:IsA("TextButton") then
+			TweenService:Create(obj, fadeOut, {BackgroundTransparency = 1}):Play()
+		end
+	end
+    
+	-- Fade out the container and destroy the GUI after the fade completes
+    -- MainFrame is already in guiElements
+    
+	task.wait(0.6)
+	ScreenGui:Destroy()
+end)
+
+Yellow.MouseButton1Click:Connect(function()
+	if debounce then return end
+	debounce = true
+    
+    -- Close any open panels before minimizing
+    if panelOpen then closePanel() end
+    if funPanelOpen then closeFunPanel() end
+    if settingsPanelOpen then closeSettingsPanel() end -- NEW
+    
+    -- Exit full screen if active before minimizing
+    if fullScreen then
+        Green.MouseButton1Click:Fire()
+        task.wait(TWEEN_INFO.Time)
+    end
+    
+	local goal = {}
+    local currentWidth = MainFrame.Size.X
+	if minimized then
+		goal.Size = DEFAULT_SIZE -- Use DEFAULT_SIZE to restore
+        TweenService:Create(Content, TWEEN_INFO, {BackgroundTransparency = TRANSPARENCY}):Play()
+        TweenService:Create(Label, TWEEN_INFO, {TextTransparency = 0}):Play()
+	else
+		goal.Size = UDim2.new(currentWidth.Scale, currentWidth.Offset, 0, TITLE_BAR_HEIGHT)
+        TweenService:Create(Content, TWEEN_INFO, {BackgroundTransparency = 1}):Play()
+        TweenService:Create(Label, TWEEN_INFO, {TextTransparency = 1}):Play()
+	end
+    
+	TweenService:Create(MainFrame, TWEEN_INFO, goal):Play()
+	minimized = not minimized
+	task.delay(TWEEN_INFO.Time, function() debounce = false end)
+end)
+
+-- Green Button Logic (HANDLES TOGGLE AND TOOLTIP)
+Green.MouseButton1Click:Connect(function()
+    if debounce then return end
+    debounce = true
+    
+    local tooltip = Green:FindFirstChild("TooltipLabel")
+    
+    -- Cannot go full screen while minimized
+    if minimized then
+        Yellow.MouseButton1Click:Fire()
+        task.wait(TWEEN_INFO.Time)
+    end
+
+    local targetSize
+    local targetPosition
+
+    if not fullScreen then
+        -- 1. Go to Full-Screen Mode
+        -- Store the current size and position before changing
+        originalSize = MainFrame.Size
+        originalPosition = MainFrame.Position
+
+        targetSize = UDim2.new(1, 0, 1, 0)
+        targetPosition = UDim2.new(0.5, 0, 0.5, 0) -- Centered for full screen
+        
+        TweenService:Create(TitleBar, TWEEN_INFO, {BackgroundTransparency = 0.5}):Play() 
+        fullScreen = true
+        if tooltip then tooltip.Text = "Restore Down" end -- Tooltip update
+    else
+        -- 2. Go back to Original Size (Toggle Off)
+        targetSize = originalSize
+        targetPosition = originalPosition
+        
+        TweenService:Create(TitleBar, TWEEN_INFO, {BackgroundTransparency = TRANSPARENCY}):Play() 
+        fullScreen = false
+        if tooltip then tooltip.Text = "Full-Screen Mode" end -- Tooltip update
+    end
+
+    -- Tween the frame size and position
+    local tween = TweenService:Create(MainFrame, TWEEN_INFO, {
+        Size = targetSize,
+        Position = targetPosition
+    })
+    
+    tween:Play()
+
+    -- Release debounce after tween completion
+    tween.Completed:Wait()
+    
+    -- If panels are open, update their size/position now that MainFrame size has changed
+    if panelOpen or funPanelOpen then
+        local newWidth = math.floor(MainFrame.AbsoluteSize.X * 0.6)
+        if slidePanel then
+            slidePanel.Size = UDim2.new(0, newWidth, 1, -TITLE_BAR_HEIGHT)
+            if panelOpen then
+                slidePanel.Position = UDim2.new(0, 0, 0, TITLE_BAR_HEIGHT) -- Reposition if open
+            end
+        end
+        if FunPanel then
+            FunPanel.Size = UDim2.new(0, newWidth, 1, -TITLE_BAR_HEIGHT)
+            if funPanelOpen then
+                FunPanel.Position = UDim2.new(1, -newWidth, 0, TITLE_BAR_HEIGHT) -- Reposition if open
+            end
+        end
+    end
+    -- NEW: Resize settings panel if open
+    if settingsPanelOpen and SettingsPanel then
+        SettingsPanel.Size = UDim2.new(1, 0, 1, -TITLE_BAR_HEIGHT)
+    end
+    
+    task.delay(0.1, function() debounce = false end)
+end)
+
+
+--// STARTUP ANIMATION
+local function animateStartup()
+	local intro = Instance.new("TextLabel")
+	intro.Size = UDim2.new(1, 0, 1, 0)
+	intro.BackgroundTransparency = 1
+	intro.Text = WINDOW_NAME
+	intro.TextColor3 = Color3.new(1, 1, 1)
+	intro.Font = Enum.Font.Fantasy
+	intro.TextSize = 26
+	intro.TextTransparency = 1
+	intro.ZIndex = 10
+	intro.Parent = MainFrame
+
+	TweenService:Create(MainFrame, TweenInfo.new(0.4), {BackgroundTransparency = TRANSPARENCY}):Play()
+	TweenService:Create(intro, TweenInfo.new(0.4), {TextTransparency = 0}):Play()
+	task.wait(0.8)
+
+	TweenService:Create(MainFrame, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = DEFAULT_SIZE}):Play()
+	task.wait(0.25)
+
+	TweenService:Create(intro, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+	task.wait(0.2)
+	intro:Destroy()
+
+	for _, obj in ipairs({TitleBar, Content, Title, Label, Red, Yellow, Green}) do
+		if obj:IsA("TextLabel") or obj:IsA("TextButton") then
+			TweenService:Create(obj, TWEEN_INFO, {TextTransparency = 0}):Play()
+		end
+		if obj:IsA("Frame") or obj:IsA("TextButton") then
+			TweenService:Create(obj, TWEEN_INFO, {BackgroundTransparency = obj.BackgroundTransparency == 1 and TRANSPARENCY or obj.BackgroundTransparency}):Play()
+		end
+	end
+    
+    -- Also fade in the main control buttons
+    TweenService:Create(candyLauncher, TWEEN_INFO, {TextTransparency = 0, BackgroundTransparency = 0}):Play()
+    TweenService:Create(funLauncher, TWEEN_INFO, {TextTransparency = 0, BackgroundTransparency = 0}):Play()
+    TweenService:Create(settingsLauncher, TWEEN_INFO, {TextTransparency = 0, BackgroundTransparency = 0}):Play()
+end
+
+animateStartup()
+
+-- =======================================================================================
+-- 2. Candy Autofarm CORE (embedded)
+-- =======================================================================================
+local Candy = {}
+do
+	-- Config & state
+	local running = false
+	local visitedCount = 0
+	local tweenSpeed = 0.1
+	local stayDelay = 0
+	local stopwatchStart = 0
+	local stopwatchRunning = false
+
+	-- Selection highlight helper
+	local function highlightPart(part)
+		local box = Instance.new("SelectionBox")
+		box.Adornee = part
+		box.LineThickness = 0.05
+		box.Color3 = Color3.fromRGB(255, 0, 0)
+		box.SurfaceTransparency = 0.5
+		box.Parent = workspace 
+		box.Adornee = part
+		return box
+	end
+
+	local function getCandyParts()
+		local parts = {}
+		local function collect(folder)
+			if not folder then return end
+			for _, obj in ipairs(folder:GetChildren()) do
+				if obj:IsA("BasePart") then
+					table.insert(parts, obj)
+				elseif obj:IsA("Model") then
+					local main = obj:FindFirstChildWhichIsA("BasePart")
+					if main then table.insert(parts, main) end
+				end
+			end
+		end
+		collect(workspace:FindFirstChild("CandyPickups"))
+		collect(workspace:FindFirstChild("CandySpawns"))
+		return parts
+	end
+
+	local function tweenToCandy(candyPart)
+        -- Use the robust helper to get the latest character parts
+        local _, hrp, humanoid = waitForCharacter()
+        if not hrp or not humanoid then return end
+
+        local fixedY = hrp.Position.Y
+		if not candyPart or not candyPart:IsDescendantOf(game) then return end
+		humanoid.Sit = true
+		local box = highlightPart(candyPart)
+		local tweenInfo = TweenInfo.new(tweenSpeed, Enum.EasingStyle.Linear)
+		local targetPos = Vector3.new(candyPart.Position.X, fixedY, candyPart.Position.Z)
+		local tween = TweenService:Create(hrp, tweenInfo, {CFrame = CFrame.new(targetPos)})
+		tween:Play()
+		tween.Completed:Wait()
+		if box and box.Parent then box:Destroy() end
+		visitedCount = visitedCount + 1
+		if stayDelay > 0 then task.wait(stayDelay) end
+	end
+
+	local farmThread
+    local function performCleanup()
+        local _, _, humanoidInst = waitForCharacter()
+        if humanoidInst then
+            humanoidInst.Sit = false
+        end
+        stopwatchRunning = false
+    end
+    
+	function Candy.Start()
+		if running then return end
+		running = true
+		visitedCount = 0
+		stopwatchStart = os.clock()
+		stopwatchRunning = true
+
+		farmThread = task.spawn(function()
+			while running do
+				local candies = getCandyParts()
+				if #candies == 0 then
+					task.wait(1)
+				else
+					for _, candy in ipairs(candies) do
+						if not running then break end
+						if candy then
+							pcall(tweenToCandy, candy)
+						end
+					end
+				end
+				task.wait(0.05)
+			end
+            performCleanup()
+		end)
+	end
+
+	function Candy.Stop()
+		if not running then return end
+		running = false
+        if farmThread then
+            task.cancel(farmThread)
+            farmThread = nil
+        end
+		performCleanup()
+		-- visitedCount preserved
+	end
+
+	function Candy.IsRunning()
+		return running
+	end
+
+	function Candy.GetVisited()
+		return visitedCount
+	end
+
+	function Candy.SetTweenSpeed(val)
+		tweenSpeed = math.clamp(val or 0.1, 0, 1)
+	end
+
+	function Candy.SetStayDelay(val)
+		stayDelay = math.clamp(val or 0, 0, 1)
+	end
+
+	function Candy.GetStopwatch()
+		if stopwatchRunning and stopwatchStart > 0 then
+			return os.clock() - stopwatchStart
+		elseif stopwatchStart > 0 then
+			return 0
+		else
+			return 0
+		end
+	end
+
+    -- Hook into character removal (safety stop)
+    player.CharacterRemoving:Connect(Candy.Stop)
+end
+
+-- =======================================================================================
+-- 4. Candy Panel (LEFT Slide) UI
+-- =======================================================================================
+do
+	local panelWidth = math.floor( (MainFrame.AbsoluteSize.X) * 0.6 ) 
+	slidePanel = Instance.new("Frame")
+	slidePanel.Name = "CandyPanel"
+	slidePanel.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
+	slidePanel.Size = UDim2.new(0, panelWidth, 1, -TITLE_BAR_HEIGHT)
+	slidePanel.Position = UDim2.new(-1, 0, 0, TITLE_BAR_HEIGHT)
+	slidePanel.BorderSizePixel = 0
+	slidePanel.ClipsDescendants = true
+	slidePanel.Parent = MainFrame
+	Instance.new("UICorner", slidePanel).CornerRadius = UDim.new(0, 8)
+
+	local pad = Instance.new("Frame")
+    pad.Name = "pad"
+	pad.Size = UDim2.new(1, -16, 1, -16)
+	pad.Position = UDim2.new(0, 8, 0, 8)
+	pad.BackgroundTransparency = 1
+	pad.Parent = slidePanel
+
+	local panelLayout = Instance.new("UIListLayout")
+	panelLayout.Padding = UDim.new(0, 8)
+	panelLayout.FillDirection = Enum.FillDirection.Vertical
+	panelLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	panelLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+	panelLayout.Parent = pad
+
+	-- UI Elements in slider panel
+	local backBtn = Instance.new("TextButton")
+	backBtn.Size = UDim2.new(0, 220, 0, 36) 
+	backBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+	backBtn.TextColor3 = Color3.new(1, 1, 1)
+	backBtn.Font = Enum.Font.SourceSansBold
+	backBtn.TextSize = 14
+	backBtn.Text = "← Go Back"
+	backBtn.Parent = pad
+	backBtn.LayoutOrder = 0 
+	Instance.new("UICorner", backBtn).CornerRadius = UDim.new(0, 6)
+
+	local startBtn = Instance.new("TextButton")
+	startBtn.Size = UDim2.new(0, 220, 0, 38)
+	startBtn.BackgroundColor3 = Color3.fromRGB(50,50,60)
+	startBtn.TextColor3 = Color3.new(1,1,1)
+	startBtn.Font = Enum.Font.SourceSansBold
+	startBtn.TextSize = 16
+	startBtn.Text = "Start Auto-Farm"
+	startBtn.Parent = pad
+	Instance.new("UICorner", startBtn).CornerRadius = UDim.new(0,6)
+
+	local timeLabel = Instance.new("TextLabel")
+	timeLabel.Size = UDim2.new(0, 220, 0, 30)
+	timeLabel.BackgroundColor3 = Color3.fromRGB(35,35,40)
+	timeLabel.TextColor3 = Color3.new(1,1,1)
+	timeLabel.Font = Enum.Font.SourceSansBold
+	timeLabel.TextSize = 14
+	timeLabel.Text = "Time: 0s"
+	timeLabel.Parent = pad
+	Instance.new("UICorner", timeLabel).CornerRadius = UDim.new(0,6)
+
+	local partsLabel = Instance.new("TextLabel")
+	partsLabel.Size = UDim2.new(0, 220, 0, 30)
+	partsLabel.BackgroundColor3 = Color3.fromRGB(35,35,40)
+	partsLabel.TextColor3 = Color3.new(1,1,1)
+	partsLabel.Font = Enum.Font.SourceSansBold
+	partsLabel.TextSize = 14
+	partsLabel.Text = "Parts Teleported To: 0"
+	partsLabel.Parent = pad
+	Instance.new("UICorner", partsLabel).CornerRadius = UDim.new(0,6)
+
+	local speedBox = Instance.new("TextBox")
+	speedBox.Size = UDim2.new(0, 220, 0, 32)
+	speedBox.BackgroundColor3 = Color3.fromRGB(45,45,50)
+	speedBox.TextColor3 = Color3.new(1,1,1)
+	speedBox.Font = Enum.Font.SourceSans
+	speedBox.PlaceholderText = "Speed For Tween (0 - 1)"
+	speedBox.Text = "0.1"
+	speedBox.ClearTextOnFocus = false
+	speedBox.TextScaled = false
+	speedBox.TextSize = 14 
+	speedBox.Parent = pad
+	Instance.new("UICorner", speedBox).CornerRadius = UDim.new(0,6)
+
+	local delayBox = Instance.new("TextBox")
+	delayBox.Size = UDim2.new(0, 220, 0, 32)
+	delayBox.BackgroundColor3 = Color3.fromRGB(45,45,50)
+	delayBox.TextColor3 = Color3.new(1,1,1)
+	delayBox.Font = Enum.Font.SourceSans
+	delayBox.PlaceholderText = "Stay Put Delay (0 - 1)"
+	delayBox.Text = "0"
+	delayBox.ClearTextOnFocus = false
+	delayBox.TextScaled = false
+	delayBox.TextSize = 14 
+	delayBox.Parent = pad
+	Instance.new("UICorner", delayBox).CornerRadius = UDim.new(0,6)
+
+	-- Wire up controls -> Candy core
+	local function formatTime(sec)
+		sec = math.max(0, math.floor(sec or 0))
+		local s = sec % 60
+		local m = math.floor(sec / 60) % 60
+		local h = math.floor(sec / 3600)
+		if h > 0 then
+			return string.format("%02d:%02d:%02d", h, m, s)
+		else
+			return string.format("%02d:%02d", m, s)
+		end
+	end
+
+	local uiUpdateConn
+	local function startUIUpdater()
+		if uiUpdateConn then return end
+		uiUpdateConn = RunService.Heartbeat:Connect(function()
+			if Candy.IsRunning() then
+				local t = Candy.GetStopwatch() or 0
+				timeLabel.Text = "Time: " .. formatTime(t)
+				partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited())
+			end
+		end)
+	end
+
+	local function stopUIUpdater()
+		if uiUpdateConn then
+			uiUpdateConn:Disconnect()
+			uiUpdateConn = nil
+		end
+	end
+
+	-- Start/Stop toggle behavior
+	startBtn.MouseButton1Click:Connect(function()
+		if not Candy.IsRunning() then
+			local sp = tonumber(speedBox.Text) or tonumber(speedBox.PlaceholderText) or 0.1
+			local sd = tonumber(delayBox.Text) or tonumber(delayBox.PlaceholderText) or 0
+			sp = math.clamp(sp, 0, 1)
+			sd = math.clamp(sd, 0, 1)
+			Candy.SetTweenSpeed(sp)
+			Candy.SetStayDelay(sd)
+			Candy.Start()
+			startBtn.Text = "Stop Auto-Farm"
+			timeLabel.Text = "Time: 00:00"
+			partsLabel.Text = "Parts Teleported To: 0"
+			startUIUpdater()
+		else
+			Candy.Stop()
+			startBtn.Text = "Start Auto-Farm"
+			timeLabel.Text = "Time: 00:00"
+			partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited())
+			stopUIUpdater()
+		end
+	end)
+
+	-- Validate and clamp inputs when editing finished
+	local function clampTextBoxInput(tb, default)
+		tb.FocusLost:Connect(function(enterPressed)
+			local val = tonumber(tb.Text)
+			if not val then
+				tb.Text = tostring(default)
+				return
+			end
+			val = math.clamp(val, 0, 1)
+			tb.Text = tostring(val)
+			if tb == speedBox then
+				Candy.SetTweenSpeed(val)
+			elseif tb == delayBox then
+				Candy.SetStayDelay(val)
+			end
+		end)
+	end
+
+	clampTextBoxInput(speedBox, 0.1)
+	clampTextBoxInput(delayBox, 0)
+	
+	-- Wire up main launcher
+	candyLauncher.MouseButton1Click:Connect(function()
+		if panelOpen then
+			closePanel()
+		else
+			openPanel()
+		end
+	end)
+	backBtn.MouseButton1Click:Connect(closePanel)
+
+	-- Ensure UI updater stops if GUI is destroyed
+	ScreenGui.AncestryChanged:Connect(function(_, parent)
+		if not parent then
+			stopUIUpdater()
+		end
+	end)
+
+	task.spawn(function()
+		while ScreenGui.Parent do
+            if not Candy.IsRunning() then
+			    partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited())
+            end
+			task.wait(0.5)
+		end
+	end)
+
+	-- Keep slidePanel positioned correctly regarding size when MainFrame resizes
+	MainFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+		local newWidth = math.floor(MainFrame.AbsoluteSize.X * 0.6)
+		if slidePanel then slidePanel.Size = UDim2.new(0, newWidth, 1, -TITLE_BAR_HEIGHT) end
+	end)
+end
+
+
+-- =======================================================================================
+-- 5. Fun / Miscellaneous Panel (RIGHT Slide) Setup
+-- =======================================================================================
+do
+	local funPanelWidth = math.floor( (MainFrame.AbsoluteSize.X) * 0.6 ) 
+	FunPanel = Instance.new("Frame") 
+	FunPanel.Name = "FunMiscellaneousPanel" 
+	FunPanel.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
+	FunPanel.Size = UDim2.new(0, funPanelWidth, 1, -TITLE_BAR_HEIGHT)
+	FunPanel.Position = UDim2.new(1, 0, 0, TITLE_BAR_HEIGHT)
+	FunPanel.BorderSizePixel = 0
+	FunPanel.ClipsDescendants = true
+	FunPanel.Parent = MainFrame
+	Instance.new("UICorner", FunPanel).CornerRadius = UDim.new(0, 8)
+
+	-- inner padding frame
+	local funPad = Instance.new("Frame") 
+    funPad.Name = "funPad"
+	funPad.Size = UDim2.new(1, -16, 1, -16)
+	funPad.Position = UDim2.new(0, 8, 0, 8)
+	funPad.BackgroundTransparency = 1
+	funPad.Parent = FunPanel
+
+	local funLayout = Instance.new("UIListLayout") 
+	funLayout.Padding = UDim.new(0, 8)
+	funLayout.FillDirection = Enum.FillDirection.Vertical
+	funLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	funLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+	funLayout.Parent = funPad
+
+	-- Go Back button
+	local funBackBtn = Instance.new("TextButton") 
+	funBackBtn.Size = UDim2.new(0, 220, 0, 36)
+	funBackBtn.BackgroundColor3 = COLORS.TitleBar
+	funBackBtn.TextColor3 = COLORS.Text
+	funBackBtn.Font = Enum.Font.SourceSansBold
+	funBackBtn.TextSize = 14
+	funBackBtn.Text = "← Go Back" 
+	funBackBtn.Parent = funPad
+	funBackBtn.LayoutOrder = 0
+	Instance.new("UICorner", funBackBtn).CornerRadius = UDim.new(0, 6)
+
+	-- Brainrot Stealing button logic 
+	local stealBtn = Instance.new("TextButton")
+	stealBtn.Size = UDim2.new(0, 220, 0, 38)
+	stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotInactive -- Initial color
+	stealBtn.TextColor3 = Color3.new(1, 1, 1)
+	stealBtn.Font = Enum.Font.SourceSansBold
+	stealBtn.TextSize = 16
+	stealBtn.Text = "Start Stealing Brainrots" -- NEW TEXT
+	stealBtn.Parent = funPad
+	Instance.new("UICorner", stealBtn).CornerRadius = UDim.new(0, 6)
+	stealBtn.LayoutOrder = 1
+
+	-- Toggle functions
+	local function startStealing()
+		if BrainrotStealer.IsRunning() then return end
+		BrainrotStealer.Start()
+		stealBtn.Text = "Stop Stealing Brainrots"
+		stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotActive -- dark red
+	end
+
+	local function stopStealing()
+		if not BrainrotStealer.IsRunning() then return end
+		BrainrotStealer.Stop()
+		stealBtn.Text = "Start Stealing Brainrots"
+		stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotInactive -- dark gray/black
+	end
+
+	-- Toggle button
+	stealBtn.MouseButton1Click:Connect(function()
+		if BrainrotStealer.IsRunning() then
+			stopStealing()
+		else
+			startStealing()
+		end
+	end)
+
+	-- Wire up main launcher and back button
+	funLauncher.MouseButton1Click:Connect(function() 
+		if funPanelOpen then
+			closeFunPanel()
+		else
+			openFunPanel()
+		end
+	end)
+
+	funBackBtn.MouseButton1Click:Connect(function()
+        stopStealing() -- Safety stop when exiting panel
+        closeFunPanel()
+    end) 
+
+	-- Keep FunPanel sized correctly if MainFrame resizes
+	MainFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+		local newWidth = math.floor(MainFrame.AbsoluteSize.X * 0.6)
+		if FunPanel then FunPanel.Size = UDim2.new(0, newWidth, 1, -TITLE_BAR_HEIGHT) end
+		if funPanelOpen and FunPanel then
+			FunPanel.Position = UDim2.new(1, -newWidth, 0, TITLE_BAR_HEIGHT)
+		end
+	end)
+end
+
+-- =======================================================================================
+-- 6. Settings Panel (TOP Slide-Down) Setup
+-- =======================================================================================
+do
+	SettingsPanel = Instance.new("Frame") 
+	SettingsPanel.Name = "SettingsPanel" 
+	SettingsPanel.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
+	SettingsPanel.Size = UDim2.new(1, 0, 0, 0) -- Starts with 0 height
+	SettingsPanel.Position = UDim2.new(0, 0, 0, TITLE_BAR_HEIGHT) -- Positioned right under title bar
+	SettingsPanel.BorderSizePixel = 0
+	SettingsPanel.ClipsDescendants = true
+	SettingsPanel.ZIndex = 3 -- Needs to be above the Content frame (ZIndex 1)
+	SettingsPanel.Parent = MainFrame
+	Instance.new("UICorner", SettingsPanel).CornerRadius = UDim.new(0, 8)
+
+	-- inner padding frame
+	local settingsPad = Instance.new("Frame") 
+    settingsPad.Name = "settingsPad"
+	settingsPad.Size = UDim2.new(1, -16, 1, -16)
+	settingsPad.Position = UDim2.new(0, 8, 0, 8)
+	settingsPad.BackgroundTransparency = 1
+	settingsPad.Parent = SettingsPanel
+
+	local settingsLayout = Instance.new("UIListLayout") 
+	settingsLayout.Padding = UDim.new(0, 8)
+	settingsLayout.FillDirection = Enum.FillDirection.Vertical
+	settingsLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	settingsLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+	settingsLayout.Parent = settingsPad
+
+	-- Go Back button
+	local settingsBackBtn = Instance.new("TextButton") 
+	settingsBackBtn.Name = "SettingsBackButton" -- For guiElements list
+	settingsBackBtn.Size = UDim2.new(0, 220, 0, 36)
+	settingsBackBtn.BackgroundColor3 = COLORS.TitleBar
+	settingsBackBtn.TextColor3 = COLORS.Text
+	settingsBackBtn.Font = Enum.Font.SourceSansBold
+	settingsBackBtn.TextSize = 14
+	settingsBackBtn.Text = "↑ Close Settings" 
+	settingsBackBtn.Parent = settingsPad
+	settingsBackBtn.LayoutOrder = 0
+	Instance.new("UICorner", settingsBackBtn).CornerRadius = UDim.new(0, 6)
+    
+    -- Example Setting
+    local exampleSettingLabel = Instance.new("TextLabel")
+    exampleSettingLabel.Size = UDim2.new(0, 220, 0, 30)
+    exampleSettingLabel.BackgroundTransparency = 1
+    exampleSettingLabel.TextColor3 = Color3.new(1,1,1)
+    exampleSettingLabel.Font = Enum.Font.SourceSans
+    exampleSettingLabel.TextSize = 14
+    exampleSettingLabel.Text = "Settings will go here."
+    exampleSettingLabel.Parent = settingsPad
+    exampleSettingLabel.LayoutOrder = 1
+    
+    -- Add the back button to the main guiElements list for fade-out
+    table.insert(guiElements, settingsBackBtn)
+
+	-- Wire up main launcher and back button
+	settingsLauncher.MouseButton1Click:Connect(function() 
+		if settingsPanelOpen then
+			closeSettingsPanel()
+		else
+			openSettingsPanel()
+		end
+	end)
+
+	settingsBackBtn.MouseButton1Click:Connect(closeSettingsPanel) 
+
+	-- Keep SettingsPanel sized correctly if MainFrame resizes
+	MainFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+		if settingsPanelOpen and SettingsPanel then
+			-- If it's open, just maintain the full-size-minus-title-bar
+            SettingsPanel.Size = UDim2.new(1, 0, 1, -TITLE_BAR_HEIGHT)
+		end
+	end)
+end
+
