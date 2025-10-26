@@ -42,7 +42,7 @@ local BUTTON_SIZE = UDim2.new(0, 12, 0, 12)
 local BUTTON_MARGIN = 8
 local BUTTON_SPACING = 6
 local CORNER_RADIUS = 10
-local TRANSPARENCY = 0.3 -- slightly translucent
+local TRANSPARENCY = 0.3 -- slightly translucent -- Default transparency for other GUIs
 
 local COLORS = {
 	Main = Color3.fromRGB(2, 13, 33),
@@ -56,6 +56,7 @@ local COLORS = {
 }
 
 local TWEEN_INFO = TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local TWEEN_INFO_FAST = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) -- For dropdown and rainbow
 
 --// GUI STATE FOR FULL-SCREEN TOGGLE
 local fullScreen = false
@@ -64,10 +65,20 @@ local debounce = false
 local originalSize = DEFAULT_SIZE
 local originalPosition = UDim2.new(0.5, 0, 0.5, 0) 
 
+--// THEME STATE
+local rainbowThemeActive = false
+local rainbowTask = nil
+
+-- Forward declare GUI elements needed in ApplyTheme
+local MainFrame, Content, TitleBar, Title, Label 
+local candyLauncher, funLauncher, settingsLauncher
+local slidePanel, FunPanel, SettingsPanel 
+
 -- =======================================================================================
 -- 1. Brainrot Stealer Core Logic 
 -- =======================================================================================
 local BrainrotStealer = {}
+-- ... (Brainrot Stealer code remains unchanged) ...
 do
     -- CONFIG (from user's script)
     local DROP_REMOTE_PATH = {"Remotes", "DropBrainrotEvent"}
@@ -276,19 +287,24 @@ do
         while running do 
             local ok, err = pcall(function()
                 -- Check for valid parts again inside the loop (redundant but safe)
-                if not hrpPart or not humanoidInst or not hrpPart.Parent then 
+                 local currentHrp = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                 local currentHumanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+                if not currentHrp or not currentHumanoid or not currentHrp.Parent then 
                     error("Character parts lost during loop execution.") 
                 end
+                hrpPart = currentHrp -- Update references just in case
+                humanoidInst = currentHumanoid
                 
                 -- 0. CONSTANTLY UPDATE SUPPORT BLOCK
                 updateRigBlock(hrpPart)
 
                 local found = findNearestAllowedPrompt()
                 
-                if found and found.prompt then
+                if found and found.prompt and found.prompt.Parent then -- Check prompt still exists
                     local targetModel = found.prompt.Parent:FindFirstAncestorOfClass("Model") or found.prompt.Parent
                     
                     -- 1. HIGHLIGHT TARGET
+                    if currentHighlight then cleanupHighlight() end -- Cleanup previous highlight
                     currentHighlight = Instance.new("SelectionBox")
                     currentHighlight.Color3 = Color3.fromRGB(255, 255, 0) -- Bright Yellow
                     currentHighlight.LineThickness = 0.1
@@ -298,7 +314,11 @@ do
                     -- 2. Tween to brainrot (Moves to TARGET_Y=10)
                     tweenTo(found.pivot, 0.4)
                     task.wait(0.06)
-                    activatePromptInstant(found.prompt)
+                     if found.prompt and found.prompt.Parent then -- Check again before activating
+                        activatePromptInstant(found.prompt)
+                     else
+                         warn("Prompt disappeared before activation")
+                     end
 
                     -- 3. Tween to drop spot (Moves to DROP_Y=-15)
                     tweenTo(DROP_COORDS, 0.6)
@@ -312,18 +332,25 @@ do
                     -- 5. CLEANUP HIGHLIGHT after cycle
                     cleanupHighlight()
                 else
-                    task.wait(0.6)
+                    task.wait(0.6) -- Wait longer if nothing found
                 end
             end)
             if not ok then warn("Error in BrainrotStealer coreLoop:", err) end
+            -- Make sure character exists before waiting delay
+             if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then
+                 warn("Character lost, stopping BrainrotStealer loop.")
+                 break -- Exit loop if character is gone
+             end
             task.wait(LOOP_DELAY)
         end
         
         -- Final cleanup when loop exits
         local _, _, finalHumanoid = waitForCharacter()
         if finalHumanoid then
-            finalHumanoid.PlatformStand = false
-            finalHumanoid.Sit = false
+           pcall(function()
+                 finalHumanoid.PlatformStand = false
+                finalHumanoid.Sit = false
+           end)
         end
         cleanupRigBlock()
         cleanupHighlight()
@@ -331,27 +358,27 @@ do
 
     -- Cleanup function called on stop/respawn
     local function performCleanup()
-        local _, _, humanoidInst = waitForCharacter()
-        if humanoidInst then
-            humanoidInst.PlatformStand = false
-            humanoidInst.Sit = false
-        end
-        cleanupRigBlock()
-        cleanupHighlight()
+         pcall(function() -- Wrap in pcall for safety during cleanup
+            local _, _, humanoidInst = waitForCharacter()
+            if humanoidInst then
+                humanoidInst.PlatformStand = false
+                humanoidInst.Sit = false
+            end
+            cleanupRigBlock()
+            cleanupHighlight()
+         end)
     end
 
     -- API Functions for GUI control
     function BrainrotStealer.Start()
         if running then return end
-        running = true
         
         local char, hrpPart, humanoidInst = waitForCharacter()
         if not char or not hrpPart or not humanoidInst then
-            running = false
             warn("Failed to find character parts for Stealer. Bot cannot start.")
             return
         end
-
+        running = true -- Set running to true only if character is valid
         -- Run the core logic in a separate thread
         stealTask = task.spawn(coreLoop)
     end
@@ -371,16 +398,22 @@ do
     end
     
     -- INITIAL PROMPT SETUP & CHARACTER REMOVAL HOOK
-    for _, prompt in ipairs(workspace:GetDescendants()) do
-        configurePrompt(prompt)
-    end
-    workspace.DescendantAdded:Connect(function(desc)
-        if desc:IsA("ProximityPrompt") and desc.Name == PROMPT_NAME then
-            configurePrompt(desc)
+    pcall(function() -- Wrap initial setup in pcall
+        for _, prompt in ipairs(workspace:GetDescendants()) do
+            configurePrompt(prompt)
         end
+        workspace.DescendantAdded:Connect(function(desc)
+            if desc:IsA("ProximityPrompt") and desc.Name == PROMPT_NAME then
+                configurePrompt(desc)
+            end
+        end)
     end)
     -- Stop the bot when the character is lost
-    player.CharacterRemoving:Connect(BrainrotStealer.Stop)
+    player.CharacterRemoving:Connect(function()
+        if BrainrotStealer.IsRunning() then -- Only stop if it was running
+            BrainrotStealer.Stop()
+        end
+    end)
 end
 
 
@@ -391,7 +424,7 @@ ScreenGui.ResetOnSpawn = false -- Keep the GUI instance on reset
 ScreenGui.IgnoreGuiInset = true
 ScreenGui.Parent = PlayerGui
 
-local MainFrame = Instance.new("Frame")
+MainFrame = Instance.new("Frame") -- Assign to forward-declared variable
 MainFrame.Name = WINDOW_NAME
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -404,7 +437,7 @@ MainFrame.Parent = ScreenGui
 Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, CORNER_RADIUS)
 
 --// TITLE BAR
-local TitleBar = Instance.new("Frame")
+TitleBar = Instance.new("Frame") -- Assign to forward-declared variable
 TitleBar.Name = "TitleBar"
 TitleBar.Size = UDim2.new(1, 0, 0, TITLE_BAR_HEIGHT)
 TitleBar.BackgroundColor3 = COLORS.TitleBar
@@ -415,7 +448,7 @@ TitleBar.Active = true
 TitleBar.Parent = MainFrame
 Instance.new("UICorner", TitleBar).CornerRadius = UDim.new(0, CORNER_RADIUS)
 
-local Title = Instance.new("TextLabel")
+Title = Instance.new("TextLabel") -- Assign to forward-declared variable
 Title.Text = WINDOW_NAME
 Title.AnchorPoint = Vector2.new(0.5, 0)
 Title.Position = UDim2.new(0.5, 0, 0, 0)
@@ -466,7 +499,7 @@ local function makeButton(name, color, tooltipText, index)
 
 	Button.MouseLeave:Connect(function()
 		TweenService:Create(Tooltip, TweenInfo.new(0.15), {BackgroundTransparency = 1, TextTransparency = 1}):Play()
-		task.delay(0.15, function() Tooltip.Visible = false end)
+		task.delay(0.15, function() if Tooltip and Tooltip.Parent then Tooltip.Visible = false end end) -- Add check
 	end)
 
 	return Button
@@ -477,7 +510,7 @@ local Yellow = makeButton("Minimize", COLORS.ButtonMinimize, "Minimize", 2)
 local Green = makeButton("Maximize", COLORS.ButtonOther, "Full-Screen Mode", 3) 
 
 --// CONTENT FRAME (main area)
-local Content = Instance.new("Frame")
+Content = Instance.new("Frame") -- Assign to forward-declared variable
 Content.Size = UDim2.new(1, 0, 1, -TITLE_BAR_HEIGHT)
 Content.Position = UDim2.new(0, 0, 0, TITLE_BAR_HEIGHT)
 Content.BackgroundColor3 = COLORS.Main
@@ -487,7 +520,7 @@ Content.ZIndex = 1
 Content.Parent = MainFrame
 Content.ClipsDescendants = true
 
-local Label = Instance.new("TextLabel")
+Label = Instance.new("TextLabel") -- Assign to forward-declared variable
 Label.Size = UDim2.new(1, 0, 1, 0)
 Label.BackgroundTransparency = 1
 Label.Text = "" 
@@ -528,15 +561,16 @@ local function createControlButton(text, width)
 end
 
 -- MAIN CONTROL BUTTONS
-local candyLauncher = createControlButton("Candy Auto-Farm", 200)
-local funLauncher = createControlButton("Fun / Miscellaneous", 200) -- RENAMED
-local settingsLauncher = createControlButton("Settings", 200)
+candyLauncher = createControlButton("Candy Auto-Farm", 200) -- Assign
+funLauncher = createControlButton("Fun / Miscellaneous", 200) -- Assign
+settingsLauncher = createControlButton("Settings", 200) -- Assign
 
 --// DRAGGING FIXED
 do
     local dragging = false
     local dragStart = Vector2.zero
     local startPos = UDim2.new()
+    local dragConnection = nil -- Store connection to disconnect properly
 
     local function moveFrame(inputPos)
         local delta = inputPos - dragStart
@@ -547,38 +581,55 @@ do
             startPos.Y.Offset + delta.Y
         )
     end
+    
+    local function endDrag()
+         dragging = false
+        if dragConnection then
+            dragConnection:Disconnect()
+            dragConnection = nil
+        end
+    end
 
     TitleBar.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
             dragging = true
             dragStart = input.Position
             startPos = MainFrame.Position
+            
+             -- Disconnect previous connection if it exists
+            if dragConnection then
+                 dragConnection:Disconnect()
+            end
 
-            local moveConnection
-            moveConnection = UserInputService.InputChanged:Connect(function(moveInput)
+            -- Handle movement
+            dragConnection = UserInputService.InputChanged:Connect(function(moveInput)
                 if dragging and (moveInput.UserInputType == Enum.UserInputType.MouseMovement or moveInput.UserInputType == Enum.UserInputType.Touch) then
                     moveFrame(moveInput.Position)
                 end
             end)
-
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
-                    moveConnection:Disconnect()
-                end
-            end)
+            
+             -- Handle release using InputEnded on the specific input object
+             input.Changed:Connect(function()
+                 if input.UserInputState == Enum.UserInputState.End then
+                     endDrag()
+                 end
+             end)
         end
     end)
+    
+     -- Handle cases where input ends unexpectedly (e.g., focus lost)
+     UserInputService.InputEnded:Connect(function(input)
+         if dragging and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+             endDrag()
+         end
+     end)
 end
 
 -- =======================================================================================
 -- 3. Panel Management and UI Wire-up
 -- =======================================================================================
-local FunPanel 
 local funPanelOpen = false 
-local slidePanel 
 local panelOpen = false
-local SettingsPanel -- NEW
 local settingsPanelOpen = false -- NEW
 local panelAnimationTime = 0.35
 
@@ -643,6 +694,18 @@ function closeSettingsPanel()
         Size = UDim2.new(1, 0, 0, 0)
     }):Play()
     settingsPanelOpen = false
+    
+    -- Ensure dropdown is hidden when closing settings
+    local settingsPad = SettingsPanel:FindFirstChild("settingsPad")
+    if settingsPad then
+        local dropdownList = settingsPad:FindFirstChild("DropdownList")
+        if dropdownList then 
+            dropdownList.Visible = false 
+            dropdownList.Size = UDim2.new(0, 220, 0, 0) -- Reset size
+        end
+        local themeBtn = settingsPad:FindFirstChild("ThemeDropdownButton")
+        if themeBtn then themeBtn.Text = "Change Theme / Color V" end -- Reset arrow
+    end
 end
 
 local function openSettingsPanel()
@@ -667,14 +730,20 @@ local guiElements = {TitleBar, Content, Title, Label, Red, Yellow, Green, MainFr
 -- This list needs to include the back buttons from the panels for the fade out
 task.wait() -- wait for panels to be created
 if slidePanel then 
-    local backBtn = slidePanel:FindFirstChild("pad"):FindFirstChildOfClass("TextButton")
-    if backBtn then table.insert(guiElements, backBtn) end
+    local pad = slidePanel:FindFirstChild("pad")
+    if pad then
+        local backBtn = pad:FindFirstChildOfClass("TextButton")
+        if backBtn then table.insert(guiElements, backBtn) end
+    end
 end
 if FunPanel then 
-    local backBtn = FunPanel:FindFirstChild("funPad"):FindFirstChildOfClass("TextButton")
-    if backBtn then table.insert(guiElements, backBtn) end
+     local pad = FunPanel:FindFirstChild("funPad")
+     if pad then
+        local backBtn = pad:FindFirstChildOfClass("TextButton")
+        if backBtn then table.insert(guiElements, backBtn) end
+     end
 end
--- SettingsPanel will be created later, we'll add its button then
+-- SettingsPanel buttons will be added when it's created
 
 
 Red.MouseButton1Click:Connect(function()
@@ -684,24 +753,36 @@ Red.MouseButton1Click:Connect(function()
     -- Stop all bots on close
     BrainrotStealer.Stop()
     Candy.Stop()
+    rainbowThemeActive = false -- Stop rainbow theme
+    if rainbowTask then task.cancel(rainbowTask); rainbowTask = nil end
     
 	local fadeOut = TweenInfo.new(0.6, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
     
-    -- Fade out all necessary elements
-	for _, obj in ipairs(guiElements) do
-		if obj:IsA("TextLabel") or obj:IsA("TextButton") then
-			TweenService:Create(obj, fadeOut, {TextTransparency = 1}):Play()
-		end
-		if obj:IsA("Frame") or obj:IsA("TextButton") then
-			TweenService:Create(obj, fadeOut, {BackgroundTransparency = 1}):Play()
-		end
+    -- Fade out all necessary elements (guiElements gets populated fully later)
+    task.delay(0.1, function() -- Delay slightly to ensure settings buttons are added
+        -- Create a copy to iterate over, as guiElements might change during fade? (unlikely but safe)
+        local elementsToFade = {}
+        for _, obj in ipairs(guiElements) do table.insert(elementsToFade, obj) end
+        
+        for _, obj in ipairs(elementsToFade) do
+            if obj and obj.Parent then -- Check if object exists and has a parent
+                if obj:IsA("TextLabel") or obj:IsA("TextButton") then
+                    pcall(function() TweenService:Create(obj, fadeOut, {TextTransparency = 1}):Play() end) 
+                end
+                if obj:IsA("Frame") or obj:IsA("TextButton") or obj:IsA("ImageButton") or obj:IsA("ScrollingFrame") then -- Include ScrollingFrame
+                     pcall(function() TweenService:Create(obj, fadeOut, {BackgroundTransparency = 1}):Play() end)
+                end
+                 if obj:IsA("ImageButton") then -- Fade image too
+                     pcall(function() TweenService:Create(obj, fadeOut, {ImageTransparency = 1}):Play() end)
+                end
+            end
+        end
+    end)
+    
+	task.wait(0.7) -- Increased wait time
+	if ScreenGui and ScreenGui.Parent then -- Check if still valid before destroying
+		ScreenGui:Destroy()
 	end
-    
-	-- Fade out the container and destroy the GUI after the fade completes
-    -- MainFrame is already in guiElements
-    
-	task.wait(0.6)
-	ScreenGui:Destroy()
 end)
 
 Yellow.MouseButton1Click:Connect(function()
@@ -832,7 +913,7 @@ local function animateStartup()
 
 	TweenService:Create(intro, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
 	task.wait(0.2)
-	intro:Destroy()
+	 if intro and intro.Parent then intro:Destroy() end -- Add check before destroying
 
 	for _, obj in ipairs({TitleBar, Content, Title, Label, Red, Yellow, Green}) do
 		if obj:IsA("TextLabel") or obj:IsA("TextButton") then
@@ -855,6 +936,7 @@ animateStartup()
 -- 2. Candy Autofarm CORE (embedded)
 -- =======================================================================================
 local Candy = {}
+-- ... (Candy Autofarm code remains unchanged) ...
 do
 	-- Config & state
 	local running = false
@@ -866,12 +948,13 @@ do
 
 	-- Selection highlight helper
 	local function highlightPart(part)
+        if not part or not part.Parent then return nil end -- Add check
 		local box = Instance.new("SelectionBox")
 		box.Adornee = part
 		box.LineThickness = 0.05
 		box.Color3 = Color3.fromRGB(255, 0, 0)
 		box.SurfaceTransparency = 0.5
-		box.Parent = workspace 
+		box.Parent = workspace -- Consider parenting to part or PlayerGui for better cleanup
 		box.Adornee = part
 		return box
 	end
@@ -881,11 +964,12 @@ do
 		local function collect(folder)
 			if not folder then return end
 			for _, obj in ipairs(folder:GetChildren()) do
-				if obj:IsA("BasePart") then
+                 -- Add checks to ensure parts are valid
+				if obj:IsA("BasePart") and obj.Parent then
 					table.insert(parts, obj)
-				elseif obj:IsA("Model") then
+				elseif obj:IsA("Model") and obj.Parent then
 					local main = obj:FindFirstChildWhichIsA("BasePart")
-					if main then table.insert(parts, main) end
+					if main and main.Parent then table.insert(parts, main) end
 				end
 			end
 		end
@@ -897,47 +981,79 @@ do
 	local function tweenToCandy(candyPart)
         -- Use the robust helper to get the latest character parts
         local _, hrp, humanoid = waitForCharacter()
-        if not hrp or not humanoid then return end
+        if not hrp or not humanoid or not candyPart or not candyPart:IsDescendantOf(game) then return end -- Check candyPart validity
 
         local fixedY = hrp.Position.Y
-		if not candyPart or not candyPart:IsDescendantOf(game) then return end
+		
 		humanoid.Sit = true
 		local box = highlightPart(candyPart)
 		local tweenInfo = TweenInfo.new(tweenSpeed, Enum.EasingStyle.Linear)
 		local targetPos = Vector3.new(candyPart.Position.X, fixedY, candyPart.Position.Z)
-		local tween = TweenService:Create(hrp, tweenInfo, {CFrame = CFrame.new(targetPos)})
+        
+        -- Wrap Tween creation in pcall
+        local tweenSuccess, tween = pcall(TweenService.Create, TweenService, hrp, tweenInfo, {CFrame = CFrame.new(targetPos)})
+		if not tweenSuccess then
+            warn("Failed to create tween for candy:", candyPart and candyPart.Name)
+            if box and box.Parent then box:Destroy() end
+            humanoid.Sit = false -- Unsit if tween fails
+            return
+        end
+        
 		tween:Play()
-		tween.Completed:Wait()
-		if box and box.Parent then box:Destroy() end
-		visitedCount = visitedCount + 1
-		if stayDelay > 0 then task.wait(stayDelay) end
+        
+        local completedOk = pcall(function() tween.Completed:Wait() end) -- Wait safely
+        
+		if box and box.Parent then box:Destroy() end -- Cleanup box regardless of tween completion status
+        
+        if completedOk then -- Only count if tween completed successfully
+		    visitedCount = visitedCount + 1
+		    if stayDelay > 0 then task.wait(stayDelay) end
+        else
+            warn("Tween to candy interrupted or failed:", candyPart and candyPart.Name)
+            -- Attempt to unsit even if tween failed
+            if humanoid and humanoid.Parent then humanoid.Sit = false end
+        end
 	end
 
 	local farmThread
     local function performCleanup()
-        local _, _, humanoidInst = waitForCharacter()
-        if humanoidInst then
-            humanoidInst.Sit = false
-        end
-        stopwatchRunning = false
+        pcall(function() -- Wrap cleanup in pcall
+            local _, _, humanoidInst = waitForCharacter()
+            if humanoidInst then
+                humanoidInst.Sit = false
+            end
+            stopwatchRunning = false
+        end)
     end
     
 	function Candy.Start()
 		if running then return end
-		running = true
+		
+        local char, hrp, humanoid = waitForCharacter()
+        if not char or not hrp or not humanoid then
+            warn("Cannot start Candy farm: Character not found.")
+            return
+        end
+        
+        running = true
 		visitedCount = 0
 		stopwatchStart = os.clock()
 		stopwatchRunning = true
 
 		farmThread = task.spawn(function()
 			while running do
+                if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then
+                    warn("Character lost during Candy farm loop.")
+                    break -- Exit loop if character is gone
+                end
+                
 				local candies = getCandyParts()
 				if #candies == 0 then
 					task.wait(1)
 				else
 					for _, candy in ipairs(candies) do
 						if not running then break end
-						if candy then
+						if candy and candy.Parent then -- Check candy validity
 							pcall(tweenToCandy, candy)
 						end
 					end
@@ -968,25 +1084,29 @@ do
 	end
 
 	function Candy.SetTweenSpeed(val)
-		tweenSpeed = math.clamp(val or 0.1, 0, 1)
+		tweenSpeed = math.clamp(tonumber(val) or 0.1, 0, 1) -- Ensure conversion to number
 	end
 
 	function Candy.SetStayDelay(val)
-		stayDelay = math.clamp(val or 0, 0, 1)
+		stayDelay = math.clamp(tonumber(val) or 0, 0, 1) -- Ensure conversion to number
 	end
 
 	function Candy.GetStopwatch()
 		if stopwatchRunning and stopwatchStart > 0 then
 			return os.clock() - stopwatchStart
-		elseif stopwatchStart > 0 then
-			return 0
+		elseif stopwatchStart > 0 then -- This condition seems redundant, maybe intended !stopwatchRunning?
+			return 0 -- Should perhaps return elapsed time when stopped? Let's keep it simple.
 		else
 			return 0
 		end
 	end
 
     -- Hook into character removal (safety stop)
-    player.CharacterRemoving:Connect(Candy.Stop)
+     player.CharacterRemoving:Connect(function()
+         if Candy.IsRunning() then
+             Candy.Stop()
+         end
+     end)
 end
 
 -- =======================================================================================
@@ -994,7 +1114,7 @@ end
 -- =======================================================================================
 do
 	local panelWidth = math.floor( (MainFrame.AbsoluteSize.X) * 0.6 ) 
-	slidePanel = Instance.new("Frame")
+	slidePanel = Instance.new("Frame") -- Assign
 	slidePanel.Name = "CandyPanel"
 	slidePanel.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
 	slidePanel.Size = UDim2.new(0, panelWidth, 1, -TITLE_BAR_HEIGHT)
@@ -1031,6 +1151,7 @@ do
 	Instance.new("UICorner", backBtn).CornerRadius = UDim.new(0, 6)
 
 	local startBtn = Instance.new("TextButton")
+    startBtn.Name = "Start Auto-Farm" -- Give it a name to find later
 	startBtn.Size = UDim2.new(0, 220, 0, 38)
 	startBtn.BackgroundColor3 = Color3.fromRGB(50,50,60)
 	startBtn.TextColor3 = Color3.new(1,1,1)
@@ -1105,8 +1226,12 @@ do
 		uiUpdateConn = RunService.Heartbeat:Connect(function()
 			if Candy.IsRunning() then
 				local t = Candy.GetStopwatch() or 0
-				timeLabel.Text = "Time: " .. formatTime(t)
-				partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited())
+                if timeLabel and timeLabel.Parent then -- Check exists
+				    timeLabel.Text = "Time: " .. formatTime(t)
+                end
+                if partsLabel and partsLabel.Parent then -- Check exists
+				    partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited())
+                end
 			end
 		end)
 	end
@@ -1135,32 +1260,30 @@ do
 		else
 			Candy.Stop()
 			startBtn.Text = "Start Auto-Farm"
-			timeLabel.Text = "Time: 00:00"
-			partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited())
+			-- Don't reset labels immediately, let the final count show
+             task.delay(0.1, function()
+                 if timeLabel and timeLabel.Parent then timeLabel.Text = "Time: 00:00" end
+                 if partsLabel and partsLabel.Parent then partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited()) end
+             end)
 			stopUIUpdater()
 		end
 	end)
 
 	-- Validate and clamp inputs when editing finished
-	local function clampTextBoxInput(tb, default)
+	local function clampTextBoxInput(tb, default, setterFunc)
 		tb.FocusLost:Connect(function(enterPressed)
 			local val = tonumber(tb.Text)
 			if not val then
-				tb.Text = tostring(default)
-				return
+				val = default -- Use default if invalid
 			end
-			val = math.clamp(val, 0, 1)
-			tb.Text = tostring(val)
-			if tb == speedBox then
-				Candy.SetTweenSpeed(val)
-			elseif tb == delayBox then
-				Candy.SetStayDelay(val)
-			end
+			val = math.clamp(val, 0, 1) -- Clamp regardless
+			tb.Text = tostring(val) -- Update text box
+            setterFunc(val) -- Call the setter function (Candy.SetTweenSpeed or Candy.SetStayDelay)
 		end)
 	end
 
-	clampTextBoxInput(speedBox, 0.1)
-	clampTextBoxInput(delayBox, 0)
+	clampTextBoxInput(speedBox, 0.1, Candy.SetTweenSpeed)
+	clampTextBoxInput(delayBox, 0, Candy.SetStayDelay)
 	
 	-- Wire up main launcher
 	candyLauncher.MouseButton1Click:Connect(function()
@@ -1176,13 +1299,15 @@ do
 	ScreenGui.AncestryChanged:Connect(function(_, parent)
 		if not parent then
 			stopUIUpdater()
+            -- Also ensure Candy farm stops if GUI is removed
+            if Candy.IsRunning() then Candy.Stop() end
 		end
 	end)
 
 	task.spawn(function()
-		while ScreenGui.Parent do
-            if not Candy.IsRunning() then
-			    partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited())
+		while ScreenGui and ScreenGui.Parent do -- Check ScreenGui exists
+            if not Candy.IsRunning() and partsLabel and partsLabel.Parent then -- Check partsLabel exists
+			    pcall(function() partsLabel.Text = "Parts Teleported To: " .. tostring(Candy.GetVisited()) end) 
             end
 			task.wait(0.5)
 		end
@@ -1192,6 +1317,10 @@ do
 	MainFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
 		local newWidth = math.floor(MainFrame.AbsoluteSize.X * 0.6)
 		if slidePanel then slidePanel.Size = UDim2.new(0, newWidth, 1, -TITLE_BAR_HEIGHT) end
+        -- If open, reposition immediately
+        if panelOpen and slidePanel then
+             slidePanel.Position = UDim2.new(0, 0, 0, TITLE_BAR_HEIGHT)
+        end
 	end)
 end
 
@@ -1201,7 +1330,7 @@ end
 -- =======================================================================================
 do
 	local funPanelWidth = math.floor( (MainFrame.AbsoluteSize.X) * 0.6 ) 
-	FunPanel = Instance.new("Frame") 
+	FunPanel = Instance.new("Frame") -- Assign
 	FunPanel.Name = "FunMiscellaneousPanel" 
 	FunPanel.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
 	FunPanel.Size = UDim2.new(0, funPanelWidth, 1, -TITLE_BAR_HEIGHT)
@@ -1240,6 +1369,7 @@ do
 
 	-- Brainrot Stealing button logic 
 	local stealBtn = Instance.new("TextButton")
+    stealBtn.Name = "Start Stealing Brainrots" -- Give it a name to find later
 	stealBtn.Size = UDim2.new(0, 220, 0, 38)
 	stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotInactive -- Initial color
 	stealBtn.TextColor3 = Color3.new(1, 1, 1)
@@ -1254,15 +1384,19 @@ do
 	local function startStealing()
 		if BrainrotStealer.IsRunning() then return end
 		BrainrotStealer.Start()
-		stealBtn.Text = "Stop Stealing Brainrots"
-		stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotActive -- dark red
+        if stealBtn and stealBtn.Parent then -- Check button exists
+		    stealBtn.Text = "Stop Stealing Brainrots"
+		    stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotActive -- dark red
+        end
 	end
 
 	local function stopStealing()
 		if not BrainrotStealer.IsRunning() then return end
 		BrainrotStealer.Stop()
-		stealBtn.Text = "Start Stealing Brainrots"
-		stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotInactive -- dark gray/black
+         if stealBtn and stealBtn.Parent then -- Check button exists
+		    stealBtn.Text = "Start Stealing Brainrots"
+		    stealBtn.BackgroundColor3 = COLORS.ButtonBrainrotInactive -- dark gray/black
+         end
 	end
 
 	-- Toggle button
@@ -1293,7 +1427,8 @@ do
 		local newWidth = math.floor(MainFrame.AbsoluteSize.X * 0.6)
 		if FunPanel then FunPanel.Size = UDim2.new(0, newWidth, 1, -TITLE_BAR_HEIGHT) end
 		if funPanelOpen and FunPanel then
-			FunPanel.Position = UDim2.new(1, -newWidth, 0, TITLE_BAR_HEIGHT)
+			-- Reposition immediately if open
+             FunPanel.Position = UDim2.new(1, -newWidth, 0, TITLE_BAR_HEIGHT)
 		end
 	end)
 end
@@ -1301,24 +1436,172 @@ end
 -- =======================================================================================
 -- 6. Settings Panel (TOP Slide-Down) Setup
 -- =======================================================================================
+-- Helper function to get contrasting text color
+local function getContrastingTextColor(color)
+    -- Using luminance formula
+    local luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B)
+    if luminance > 0.5 then
+        return Color3.new(0, 0, 0) -- Black text for light colors
+    else
+        return Color3.new(1, 1, 1) -- White text for dark colors
+    end
+end
+
+-- Define ApplyTheme function before it's used in the settings panel
+function ApplyTheme(newColor, isRainbow)
+    -- Stop rainbow task if a new static color is applied
+    if not isRainbow and rainbowThemeActive then
+        rainbowThemeActive = false
+        if rainbowTask then
+            task.cancel(rainbowTask)
+            rainbowTask = nil
+        end
+    end
+    
+    local darkerColor = newColor:Lerp(Color3.new(0,0,0), 0.3)
+    local panelColor = newColor:Lerp(Color3.new(0,0,0), 0.1)
+    local buttonColor = newColor:Lerp(Color3.new(0,0,0), 0.2)
+    local mainButtonColor = newColor:Lerp(Color3.new(0.1, 0.1, 0.1), 0.4)
+    local dropdownBgColor = panelColor:Lerp(Color3.new(0,0,0), 0.1)
+    
+    -- Get contrasting text color
+    local textColor = getContrastingTextColor(newColor)
+    local darkTextColor = getContrastingTextColor(darkerColor)
+    
+    -- Update global colors table
+    COLORS.Main = newColor
+    COLORS.TitleBar = darkerColor
+    COLORS.Text = darkTextColor -- Update main text color based on title bar
+    
+    -- Select the tween info (fast for rainbow, normal for static)
+    local tweenInfo = isRainbow and TWEEN_INFO_FAST or TWEEN_INFO
+    
+    -- Apply to THIS script's main frames
+    if MainFrame then TweenService:Create(MainFrame, tweenInfo, {BackgroundColor3 = newColor}):Play() end
+    if Content then TweenService:Create(Content, tweenInfo, {BackgroundColor3 = newColor}):Play() end
+    if TitleBar then TweenService:Create(TitleBar, tweenInfo, {BackgroundColor3 = darkerColor}):Play() end
+    
+    -- Apply to THIS script's text
+    if Title then TweenService:Create(Title, tweenInfo, {TextColor3 = darkTextColor}):Play() end
+    if Label then TweenService:Create(Label, tweenInfo, {TextColor3 = textColor}):Play() end
+
+    -- Apply to THIS script's panels (check existence)
+    if slidePanel then TweenService:Create(slidePanel, tweenInfo, {BackgroundColor3 = panelColor}):Play() end
+    if FunPanel then TweenService:Create(FunPanel, tweenInfo, {BackgroundColor3 = panelColor}):Play() end
+    if SettingsPanel then TweenService:Create(SettingsPanel, tweenInfo, {BackgroundColor3 = panelColor}):Play() end
+    
+    -- Apply to THIS script's main buttons
+    if candyLauncher then TweenService:Create(candyLauncher, tweenInfo, {BackgroundColor3 = mainButtonColor, TextColor3 = getContrastingTextColor(mainButtonColor)}):Play() end
+    if funLauncher then TweenService:Create(funLauncher, tweenInfo, {BackgroundColor3 = mainButtonColor, TextColor3 = getContrastingTextColor(mainButtonColor)}):Play() end
+    if settingsLauncher then TweenService:Create(settingsLauncher, tweenInfo, {BackgroundColor3 = mainButtonColor, TextColor3 = getContrastingTextColor(mainButtonColor)}):Play() end
+    
+    -- Apply to THIS script's panel back buttons (check existence)
+    local candyBackBtn = slidePanel and slidePanel:FindFirstChild("pad") and slidePanel.pad:FindFirstChildOfClass("TextButton")
+    local funBackBtn = FunPanel and FunPanel:FindFirstChild("funPad") and FunPanel.funPad:FindFirstChildOfClass("TextButton")
+    local settingsPad = SettingsPanel and SettingsPanel:FindFirstChild("settingsPad") -- Get settingsPad first
+    local settingsBackBtn = settingsPad and settingsPad:FindFirstChild("SettingsBackButton")
+    local themeDropdownBtn = settingsPad and settingsPad:FindFirstChild("ThemeDropdownButton")
+    local dropdownList = settingsPad and settingsPad:FindFirstChild("DropdownList")
+    
+    if candyBackBtn then TweenService:Create(candyBackBtn, tweenInfo, {BackgroundColor3 = darkerColor, TextColor3 = darkTextColor}):Play() end
+    if funBackBtn then TweenService:Create(funBackBtn, tweenInfo, {BackgroundColor3 = darkerColor, TextColor3 = darkTextColor}):Play() end
+    if settingsBackBtn then TweenService:Create(settingsBackBtn, tweenInfo, {BackgroundColor3 = darkerColor, TextColor3 = darkTextColor}):Play() end
+    if themeDropdownBtn then TweenService:Create(themeDropdownBtn, tweenInfo, {BackgroundColor3 = mainButtonColor, TextColor3 = getContrastingTextColor(mainButtonColor)}):Play() end
+    if dropdownList then TweenService:Create(dropdownList, tweenInfo, {BackgroundColor3 = dropdownBgColor}):Play() end
+
+    -- Update THIS script's dropdown color buttons
+    if dropdownList then
+        for _, btn in ipairs(dropdownList:GetChildren()) do
+            if btn:IsA("TextButton") then
+                local btnBg = buttonColor:Lerp(Color3.new(1,1,1), 0.1)
+                TweenService:Create(btn, tweenInfo, {BackgroundColor3 = btnBg, TextColor3 = getContrastingTextColor(btnBg)}):Play()
+            end
+        end
+    end
+    
+    -- Update THIS script's Candy panel buttons (check existence)
+    local startBtn = slidePanel and slidePanel:FindFirstChild("pad") and slidePanel.pad:FindFirstChild("Start Auto-Farm")
+    if startBtn then TweenService:Create(startBtn, tweenInfo, {BackgroundColor3 = buttonColor, TextColor3 = getContrastingTextColor(buttonColor)}):Play() end
+    
+    -- Update THIS script's Fun panel buttons (check existence)
+    local stealBtn = FunPanel and FunPanel:FindFirstChild("funPad") and FunPanel.funPad:FindFirstChild("Start Stealing Brainrots")
+    if stealBtn then
+        -- Only update color if inactive
+        if not BrainrotStealer.IsRunning() then
+            COLORS.ButtonBrainrotInactive = buttonColor:Lerp(Color3.new(0,0,0), 0.2)
+            TweenService:Create(stealBtn, tweenInfo, {BackgroundColor3 = COLORS.ButtonBrainrotInactive, TextColor3 = getContrastingTextColor(COLORS.ButtonBrainrotInactive)}):Play()
+        else -- Update active color slightly too
+             COLORS.ButtonBrainrotActive = buttonColor:Lerp(Color3.fromRGB(255,0,0), 0.5) -- Make active color derived but still reddish
+             TweenService:Create(stealBtn, tweenInfo, {BackgroundColor3 = COLORS.ButtonBrainrotActive, TextColor3 = getContrastingTextColor(COLORS.ButtonBrainrotActive)}):Play()
+        end
+    end
+
+    -- ***** APPLY TO ALL OTHER GUIs *****
+    pcall(function() -- Wrap in pcall to prevent errors from affecting the main GUI
+        for _, guiObj in ipairs(PlayerGui:GetDescendants()) do
+            -- Skip elements that are part of this script's main GUI to avoid conflicts
+            if not guiObj:IsDescendantOf(MainFrame) then 
+                local handled = false -- Flag to check if color was applied
+                
+                -- Apply Background Color (with transparency for frames)
+                if guiObj:IsA("Frame") or guiObj:IsA("ScrollingFrame") or guiObj:IsA("ImageLabel") or guiObj:IsA("ImageButton") then
+                    TweenService:Create(guiObj, tweenInfo, {BackgroundColor3 = newColor, BackgroundTransparency = TRANSPARENCY}):Play()
+                    handled = true
+                elseif guiObj:IsA("TextButton") then -- TextButtons often need background + text color
+                     TweenService:Create(guiObj, tweenInfo, {BackgroundColor3 = buttonColor, TextColor3 = getContrastingTextColor(buttonColor)}):Play()
+                     handled = true -- Count TextButton background as handled
+                end
+
+                -- Apply Text Color
+                if guiObj:IsA("TextLabel") or guiObj:IsA("TextButton") or guiObj:IsA("TextBox") then
+                    -- Don't override TextButton color if background was already handled above
+                     if not (guiObj:IsA("TextButton") and handled) then 
+                        TweenService:Create(guiObj, tweenInfo, {TextColor3 = textColor}):Play()
+                     end
+                end
+            end
+        end
+    end)
+end
+
+-- Function to start the rainbow theme
+local function StartRainbowTheme()
+    if rainbowThemeActive then return end -- Already running
+    rainbowThemeActive = true
+    
+    rainbowTask = task.spawn(function()
+        local hue = 0
+        while rainbowThemeActive do
+            hue = (hue + 0.01) % 1
+            local color = Color3.fromHSV(hue, 1, 1)
+            ApplyTheme(color, true) -- Pass true for isRainbow
+            task.wait(0.1)
+        end
+    end)
+end
+
 do
-	SettingsPanel = Instance.new("Frame") 
+	SettingsPanel = Instance.new("Frame") -- Assign
 	SettingsPanel.Name = "SettingsPanel" 
 	SettingsPanel.BackgroundColor3 = Color3.fromRGB(20, 20, 24)
 	SettingsPanel.Size = UDim2.new(1, 0, 0, 0) -- Starts with 0 height
 	SettingsPanel.Position = UDim2.new(0, 0, 0, TITLE_BAR_HEIGHT) -- Positioned right under title bar
 	SettingsPanel.BorderSizePixel = 0
-	SettingsPanel.ClipsDescendants = true
+	SettingsPanel.ClipsDescendants = false -- Allow dropdown to show outside bounds
 	SettingsPanel.ZIndex = 3 -- Needs to be above the Content frame (ZIndex 1)
 	SettingsPanel.Parent = MainFrame
 	Instance.new("UICorner", SettingsPanel).CornerRadius = UDim.new(0, 8)
 
-	-- inner padding frame
+	-- ===================================================
+    -- Main Settings View (settingsPad)
+    -- ===================================================
 	local settingsPad = Instance.new("Frame") 
     settingsPad.Name = "settingsPad"
-	settingsPad.Size = UDim2.new(1, -16, 1, -16)
+	settingsPad.Size = UDim2.new(1, -16, 1, -16) -- Padding
 	settingsPad.Position = UDim2.new(0, 8, 0, 8)
 	settingsPad.BackgroundTransparency = 1
+    settingsPad.ClipsDescendants = false -- Allow dropdown to show outside bounds
+    settingsPad.ZIndex = 5 -- Above SettingsPanel background, below dropdown list
 	settingsPad.Parent = SettingsPanel
 
 	local settingsLayout = Instance.new("UIListLayout") 
@@ -1326,9 +1609,10 @@ do
 	settingsLayout.FillDirection = Enum.FillDirection.Vertical
 	settingsLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	settingsLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+    settingsLayout.Padding = UDim.new(0, 15) -- Add padding for spacing
 	settingsLayout.Parent = settingsPad
 
-	-- Go Back button
+	-- Go Back button (Closes entire Settings Panel)
 	local settingsBackBtn = Instance.new("TextButton") 
 	settingsBackBtn.Name = "SettingsBackButton" -- For guiElements list
 	settingsBackBtn.Size = UDim2.new(0, 220, 0, 36)
@@ -1341,21 +1625,115 @@ do
 	settingsBackBtn.LayoutOrder = 0
 	Instance.new("UICorner", settingsBackBtn).CornerRadius = UDim.new(0, 6)
     
-    -- Example Setting
-    local exampleSettingLabel = Instance.new("TextLabel")
-    exampleSettingLabel.Size = UDim2.new(0, 220, 0, 30)
-    exampleSettingLabel.BackgroundTransparency = 1
-    exampleSettingLabel.TextColor3 = Color3.new(1,1,1)
-    exampleSettingLabel.Font = Enum.Font.SourceSans
-    exampleSettingLabel.TextSize = 14
-    exampleSettingLabel.Text = "Settings will go here."
-    exampleSettingLabel.Parent = settingsPad
-    exampleSettingLabel.LayoutOrder = 1
+    -- Color Theme button (Opens Dropdown)
+    local themeDropdownBtn = Instance.new("TextButton")
+    themeDropdownBtn.Name = "ThemeDropdownButton"
+    themeDropdownBtn.Size = UDim2.new(0, 220, 0, 36)
+    themeDropdownBtn.BackgroundColor3 = COLORS.TitleBar -- Use TitleBar color for consistency
+    themeDropdownBtn.TextColor3 = COLORS.Text
+    themeDropdownBtn.Font = Enum.Font.SourceSansBold
+    themeDropdownBtn.TextSize = 14
+    themeDropdownBtn.Text = "Change Theme / Color V"
+    themeDropdownBtn.Parent = settingsPad
+    themeDropdownBtn.LayoutOrder = 1
+    Instance.new("UICorner", themeDropdownBtn).CornerRadius = UDim.new(0, 6)
     
-    -- Add the back button to the main guiElements list for fade-out
+    -- Add the buttons to the main guiElements list for fade-out
     table.insert(guiElements, settingsBackBtn)
+    table.insert(guiElements, themeDropdownBtn)
 
-	-- Wire up main launcher and back button
+    -- ===================================================
+    -- Color Dropdown List
+    -- ===================================================
+    local dropdownList = Instance.new("Frame")
+    dropdownList.Name = "DropdownList"
+    dropdownList.Size = UDim2.new(0, 220, 0, 0) -- Starts closed
+    --dropdownList.Position = UDim2.fromOffset(0, 36 + 15) -- Positioned right below the button (36 height + 15 padding) - Offset only
+    dropdownList.AnchorPoint = Vector2.new(0.5, 0) -- Anchor top-center
+    -- Calculate position based on layout order: Back Button (36) + Padding (15) + Theme Button (36) + Padding (8) = 95
+    dropdownList.Position = UDim2.new(0.5, 0, 0, 36 + 15 + 36 + 8) 
+    
+    dropdownList.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+    dropdownList.BorderSizePixel = 0
+    dropdownList.BackgroundTransparency = 0
+    dropdownList.ClipsDescendants = true
+    dropdownList.Visible = false -- Hidden by default
+    dropdownList.ZIndex = 10 -- On top of everything
+    dropdownList.Parent = settingsPad -- Parent to pad
+    Instance.new("UICorner", dropdownList).CornerRadius = UDim.new(0, 6)
+    
+    local dropdownLayout = Instance.new("UIListLayout")
+    dropdownLayout.Padding = UDim.new(0, 5)
+    dropdownLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    dropdownLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    dropdownLayout.Parent = dropdownList
+    
+    local colorPresets = {
+        {"Red", Color3.fromRGB(255, 0, 0)},
+        {"Blue", Color3.fromRGB(0, 100, 255)},
+        {"Yellow", Color3.fromRGB(255, 255, 0)},
+        {"Green", Color3.fromRGB(0, 255, 0)},
+        {"Purple", Color3.fromRGB(128, 0, 128)},
+        {"Orange", Color3.fromRGB(255, 165, 0)},
+        {"Cyan", Color3.fromRGB(0, 255, 255)},
+        {"White", Color3.fromRGB(255, 255, 255)},
+        {"RGB / Rainbow", nil} -- Nil color indicates special function
+    }
+    
+    local DROPDOWN_ITEM_HEIGHT = 30
+    local DROPDOWN_PADDING = 5
+    local totalHeight = (#colorPresets * DROPDOWN_ITEM_HEIGHT) + ((#colorPresets - 1) * DROPDOWN_PADDING) + (DROPDOWN_PADDING * 2) -- Add padding top/bottom
+    
+    -- Add top padding
+    local topPad = Instance.new("Frame")
+    topPad.Size = UDim2.new(1, 0, 0, DROPDOWN_PADDING)
+    topPad.BackgroundTransparency = 1
+    topPad.LayoutOrder = 0
+    topPad.Parent = dropdownList
+
+    for i, preset in ipairs(colorPresets) do
+        local name = preset[1]
+        local color = preset[2]
+        
+        local colorBtn = Instance.new("TextButton")
+        colorBtn.Name = name
+        colorBtn.Size = UDim2.new(1, -10, 0, DROPDOWN_ITEM_HEIGHT) -- Use scale with offset for padding
+        colorBtn.BackgroundColor3 = COLORS.TitleBar:Lerp(Color3.new(1,1,1), 0.1)
+        colorBtn.TextColor3 = COLORS.Text
+        colorBtn.Font = Enum.Font.SourceSans
+        colorBtn.TextSize = 14
+        colorBtn.Text = name
+        colorBtn.LayoutOrder = i -- Use loop index for order
+        colorBtn.Parent = dropdownList
+        Instance.new("UICorner", colorBtn).CornerRadius = UDim.new(0, 4)
+        table.insert(guiElements, colorBtn) -- Add to fade list
+        
+        colorBtn.MouseButton1Click:Connect(function()
+            if name == "RGB / Rainbow" then
+                StartRainbowTheme()
+            else
+                ApplyTheme(color, false) -- Pass false for isRainbow
+            end
+            -- Close dropdown
+            dropdownList:TweenSize(UDim2.new(0, 220, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true, function()
+                 if dropdownList and dropdownList.Parent then dropdownList.Visible = false end -- Add check
+                 if themeDropdownBtn and themeDropdownBtn.Parent then themeDropdownBtn.Text = "Change Theme / Color V" end -- Reset arrow
+            end)
+        end)
+    end
+    
+    -- Add bottom padding
+    local bottomPad = Instance.new("Frame")
+    bottomPad.Size = UDim2.new(1, 0, 0, DROPDOWN_PADDING)
+    bottomPad.BackgroundTransparency = 1
+    bottomPad.LayoutOrder = #colorPresets + 1
+    bottomPad.Parent = dropdownList
+
+    -- ===================================================
+    -- Settings Panel Wiring
+    -- ===================================================
+
+	-- Wire up main launcher and settings back button
 	settingsLauncher.MouseButton1Click:Connect(function() 
 		if settingsPanelOpen then
 			closeSettingsPanel()
@@ -1365,6 +1743,22 @@ do
 	end)
 
 	settingsBackBtn.MouseButton1Click:Connect(closeSettingsPanel) 
+    
+    -- Wire up dropdown toggle
+    themeDropdownBtn.MouseButton1Click:Connect(function()
+        if dropdownList.Visible then
+            -- Close it
+            dropdownList:TweenSize(UDim2.new(0, 220, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true, function()
+                if dropdownList and dropdownList.Parent then dropdownList.Visible = false end -- Add check
+                themeDropdownBtn.Text = "Change Theme / Color V" -- Update arrow
+            end)
+        else
+            -- Open it
+            dropdownList.Visible = true
+            dropdownList:TweenSize(UDim2.new(0, 220, 0, totalHeight), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true)
+            themeDropdownBtn.Text = "Change Theme / Color ^" -- Update arrow
+        end
+    end)
 
 	-- Keep SettingsPanel sized correctly if MainFrame resizes
 	MainFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
@@ -1374,4 +1768,3 @@ do
 		end
 	end)
 end
-
